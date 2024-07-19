@@ -5,7 +5,7 @@ import { ThemedText } from "@/components/ThemedText";
 import HomeScreens from "@/components/screens/HomeScreens";
 
 const ios = Platform.OS === "ios";
-export default function HomeScreen() {
+export default function AccountScreen() {
   return (
     <SafeAreaView
       style={{ flex: 1 }}
