@@ -1,4 +1,4 @@
-import { Platform, SafeAreaView, StatusBar, View } from "react-native";
+import { Platform, SafeAreaView, StatusBar, Text, View } from "react-native";
 
 import ParallaxScrollView from "@/components/ParallaxScrollView";
 import { ThemedText } from "@/components/ThemedText";
@@ -17,7 +17,7 @@ export default function AccountScreen() {
         barStyle={"dark-content"}
       />
       <View className="h-full  px-[28.43px] pt-[17.17px] font-[Satisfy]">
-        <HomeScreens></HomeScreens>
+        <Text className="text-black">sdasda</Text>
       </View>
     </SafeAreaView>
   );

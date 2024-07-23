@@ -8,6 +8,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      // boxShadow: {
+      //   myShadow: "0 35px 60px -15px rgba(0, 0, 0, 0.3)",
+      // },
       colors: {
         "orange-app": "#ED6119",
         "light-orange": "#FF9935",

@@ -1,13 +1,68 @@
 import { Tabs } from "expo-router";
-import React from "react";
-
+import React, { useState, useEffect } from "react";
 import { TabBarIcon } from "@/components/navigation/TabBarIcon";
 import { Colors } from "@/constants/Colors";
 import { useColorScheme } from "@/hooks/useColorScheme";
-import { Text } from "react-native";
+import Svg, { Path } from "react-native-svg";
+
+import {
+  Pressable,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
+import Animated, {
+  useSharedValue,
+  useAnimatedStyle,
+  withSpring,
+  withTiming,
+} from "react-native-reanimated";
+
+interface INavBar {
+  name: string;
+  title: string;
+  dis: string;
+}
+const AnimatedSvg = Animated.createAnimatedComponent(Svg);
+
+const dataNavbar: INavBar[] = [
+  {
+    name: "index",
+    title: "Home",
+    dis: "translate-x-0",
+  },
+  {
+    name: "genres",
+    title: "Genre",
+    dis: "translate-x-12",
+  },
+  {
+    name: "incoming",
+    title: "Incoming",
+    dis: "translate-x-2",
+  },
+  {
+    name: "rank",
+    title: "Rank",
+    dis: "translate-x-0",
+  },
+  {
+    name: "account",
+    title: "Account",
+    dis: "translate-x-0",
+  },
+];
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
+  const [active, setActive] = useState<number | string>(0);
+  const translateX = useSharedValue(0);
+  const translateY = useSharedValue(0);
+
+  const animatedStyles = useAnimatedStyle(() => ({
+    transform: [{ translateY: translateY.value }],
+  }));
 
   return (
     <Tabs
@@ -17,62 +72,63 @@ export default function TabLayout() {
         tabBarStyle: {
           height: 76,
           backgroundColor: "#ED6119",
-
           borderRadius: 5,
+          gap: 0,
         },
       }}
     >
-      <Tabs.Screen
-        name="index"
-        options={{
-          // title: "Home",
-          tabBarIcon: ({ color, focused }) => (
-            <Text className="text-white">Home</Text>
-          ),
-          tabBarShowLabel: false,
-        }}
-      />
-
-      <Tabs.Screen
-        name="genres"
-        options={{
-          // title: "Home",
-          tabBarIcon: ({ color, focused }) => (
-            <Text className="text-white">Genre</Text>
-          ),
-          tabBarShowLabel: false,
-        }}
-      />
-      <Tabs.Screen
-        name="incoming"
-        options={{
-          // title: "Home",
-          tabBarIcon: ({ color, focused }) => (
-            <Text className="text-white">Incoming</Text>
-          ),
-          tabBarShowLabel: false,
-        }}
-      />
-      <Tabs.Screen
-        name="rank"
-        options={{
-          // title: "Home",
-          tabBarIcon: ({ color, focused }) => (
-            <Text className="text-white">Rank</Text>
-          ),
-          tabBarShowLabel: false,
-        }}
-      />
-      <Tabs.Screen
-        name="account"
-        options={{
-          // title: "Home",
-          tabBarIcon: ({ color, focused }) => (
-            <Text className="text-white">Account</Text>
-          ),
-          tabBarShowLabel: false,
-        }}
-      />
+      {dataNavbar &&
+        dataNavbar.length > 0 &&
+        dataNavbar.map((item, index) => (
+          <Tabs.Screen
+            key={index}
+            name={`${item?.name}`}
+            options={{
+              // title: "Home",
+              tabBarIcon: ({ color, focused }) => (
+                <Animated.View
+                  // style={active === index && animatedStyles}
+                  className={` bg-orange-app rounded-full h-[62px] w-[62px] flex-row justify-center items-center relative !z-10 ${
+                    active === index && "-translate-y-[16px]"
+                  }`}
+                  onTouchStart={() => {
+                    setActive(index);
+                    translateY.value = withTiming(-20, { duration: 300 });
+                  }}
+                >
+                  {active === index && (
+                    <AnimatedSvg
+                      viewBox="0 0 110 60"
+                      style={[styles.activeBackground]}
+                      className="absolute w-[120px] h-[100px] -bottom-[29.2px] !z-0 "
+                    >
+                      <Path
+                        fill="#ffffff"
+                        d="M20 0H0c11.046 0 20 8.953 20 20v5c0 19.33 15.67 35 35 35s35-15.67 35-35v-5c0-11.045 8.954-20 20-20H20z"
+                      />
+                    </AnimatedSvg>
+                  )}
+                  <View
+                    className={` bg-orange-app rounded-full h-full w-full flex-row justify-center items-center relative !z-10 ${
+                      active === index && `  `
+                    } `}
+                  >
+                    <Text className="text-white absolute z-[9999]">
+                      {item?.title}
+                    </Text>
+                  </View>
+                </Animated.View>
+              ),
+              tabBarShowLabel: false,
+            }}
+          />
+        ))}
     </Tabs>
   );
 }
+
+const styles = StyleSheet.create({
+  activeBackground: {
+    position: "absolute",
+  },
+});
