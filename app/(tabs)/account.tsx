@@ -1,8 +1,6 @@
-import { Platform, SafeAreaView, StatusBar, Text, View } from "react-native";
-
-import ParallaxScrollView from "@/components/ParallaxScrollView";
-import { ThemedText } from "@/components/ThemedText";
+import Login from "@/components/login/Login";
 import HomeScreens from "@/components/screens/HomeScreens";
+import { Platform, SafeAreaView, StatusBar, Text, View } from "react-native";
 
 const ios = Platform.OS === "ios";
 export default function AccountScreen() {
@@ -11,13 +9,9 @@ export default function AccountScreen() {
       style={{ flex: 1 }}
       className={`bg-white  h-full ${ios ? "mt-0" : "mt-3"} `}
     >
-      <StatusBar
-        animated={true}
-        backgroundColor={"#000"}
-        barStyle={"dark-content"}
-      />
-      <View className="h-full  px-[28.43px] pt-[17.17px] font-[Satisfy]">
-        <Text className="text-black">sdasda</Text>
+      {/* px-16.43px */}
+      <View className="h-full  px-[28.43px] pt-[17.17px] ">
+        <HomeScreens />
       </View>
     </SafeAreaView>
   );

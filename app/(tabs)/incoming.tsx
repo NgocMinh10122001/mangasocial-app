@@ -1,7 +1,5 @@
 import { Platform, SafeAreaView, StatusBar, View } from "react-native";
 
-import ParallaxScrollView from "@/components/ParallaxScrollView";
-import { ThemedText } from "@/components/ThemedText";
 import HomeScreens from "@/components/screens/HomeScreens";
 
 const ios = Platform.OS === "ios";

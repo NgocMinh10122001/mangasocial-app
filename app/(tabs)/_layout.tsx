@@ -1,21 +1,13 @@
 import { Tabs } from "expo-router";
 import React, { useState, useEffect } from "react";
-import { TabBarIcon } from "@/components/navigation/TabBarIcon";
 import { Colors } from "@/constants/Colors";
 import { useColorScheme } from "@/hooks/useColorScheme";
 import Svg, { Path } from "react-native-svg";
 
-import {
-  Pressable,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import Animated, {
   useSharedValue,
   useAnimatedStyle,
-  withSpring,
   withTiming,
 } from "react-native-reanimated";
 
@@ -84,10 +76,8 @@ export default function TabLayout() {
             key={index}
             name={`${item?.name}`}
             options={{
-              // title: "Home",
               tabBarIcon: ({ color, focused }) => (
                 <Animated.View
-                  // style={active === index && animatedStyles}
                   className={` bg-orange-app rounded-full h-[62px] w-[62px] flex-row justify-center items-center relative !z-10 ${
                     active === index && "-translate-y-[16px]"
                   }`}
