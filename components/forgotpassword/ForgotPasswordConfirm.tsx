@@ -15,9 +15,9 @@ function ForgotPassword() {
 
   const handleSubmit = (name: string) => {};
   return (
-    <ScrollView className="w-full h-full bg-black pt-16">
+    <ScrollView className="w-full h-full bg-black">
       <StatusBar barStyle={"light-content"} />
-      <View className="login-container  w-full h-full font-sans  ">
+      <View className="login-container  w-full h-full font-sans pt-16  ">
         <Text className="text-white font-medium text-[32px] leading-[37.5px] text-center w-full">
           Forgot Password
         </Text>
@@ -29,12 +29,26 @@ function ForgotPassword() {
         </Text>
 
         <View className="w-full h-full justify-center items-center">
-          <View className="input w-full gap-5 mt-6 items-center">
+          <View className="input w-full gap-5 mt-6 items-center flex-row ">
             <TextInput
               onChangeText={setForgotPassword}
               value={forgotpassword}
-              placeholder="Confirm Password"
-              className={` max-w-[370px] w-[90%] h-[50px] bg-white text-black rounded-[10px] px-4`}
+              className={` max-w-[370px] w-[70px] h-[72px] bg-white text-black rounded-[10px] px-4`}
+            />
+            <TextInput
+              onChangeText={setForgotPassword}
+              value={forgotpassword}
+              className={` max-w-[370px] w-[70px] h-[72px] bg-white text-black rounded-[10px] px-4`}
+            />
+            <TextInput
+              onChangeText={setForgotPassword}
+              value={forgotpassword}
+              className={` max-w-[370px] w-[70px] h-[72px] bg-white text-black rounded-[10px] px-4`}
+            />
+            <TextInput
+              onChangeText={setForgotPassword}
+              value={forgotpassword}
+              className={` max-w-[370px] w-[70px] h-[72px] bg-white text-black rounded-[10px] px-4`}
             />
           </View>
           <View className="btn-login w-[full]  mt-10 flex-row justify-center items-center">

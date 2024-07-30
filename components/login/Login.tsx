@@ -5,6 +5,7 @@ import {
   StatusBar,
   Text,
   TextInput,
+  TouchableOpacity,
   View,
 } from "react-native";
 import { FontAwesome5, FontAwesome, FontAwesome6 } from "@expo/vector-icons";
@@ -17,11 +18,7 @@ function Login() {
   const [isSignup, setIsSignUp] = useState<boolean>(false);
 
   const router = useRouter();
-  const handelRedirect = useCallback(() => {
-    () => {
-      router.replace("/(tabs)/");
-    };
-  }, []);
+
   const handleSubmit = (name: string) => {
     if (name === "signup") {
       setIsSignUp(true);
@@ -32,7 +29,7 @@ function Login() {
   return (
     <ScrollView className="w-full h-full bg-black">
       <StatusBar barStyle={"light-content"} />
-      <View className="login-container  w-full h-full font-sans pt-11 ">
+      <View className="login-container  w-full h-full font-sans pt-16 ">
         <Text className="text-white font-medium text-[32px] leading-[37.5px] text-center w-full">
           Log in
         </Text>
@@ -94,13 +91,12 @@ function Login() {
           />
         </View>
         <View className="btn-login w-[full]  mt-10 flex-row justify-center items-center">
-          <View className="w-[239px] h-[54px] bg-orange-app rounded-[10px] flex-row items-center justify-center">
-            <Button
-              onPress={handelRedirect}
-              title="Log In"
-              color="#ffffff"
-            ></Button>
-          </View>
+          <TouchableOpacity
+            onPress={() => router.replace("/(tabs)/")}
+            className="w-[239px] h-[54px] bg-orange-app rounded-[10px] flex-row items-center justify-center "
+          >
+            <Button title="Log In" color="#ffffff"></Button>
+          </TouchableOpacity>
         </View>
         <Link
           href={"/forgotpass"}

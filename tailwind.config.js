@@ -8,9 +8,39 @@ module.exports = {
   ],
   theme: {
     extend: {
-      // boxShadow: {
-      //   myShadow: "0 35px 60px -15px rgba(0, 0, 0, 0.3)",
-      // },
+      margin: {
+        17: "17.17px",
+      },
+      lineHeight: {
+        18.75: "18.75px",
+        21: "21px",
+      },
+      borderRadius: {
+        10: "10px",
+        20: "20px",
+      },
+      width: {
+        240: "240px",
+        125: "125px",
+        175: "175px",
+      },
+      height: {
+        54: "54px",
+        46: "46px",
+        42: "42px",
+      },
+      padding: {
+        28.5: "28.43px",
+        17: "17.17px",
+      },
+      fontSize: {
+        32: "32px",
+        29: "29px",
+      },
+      lineHeight: {
+        37.5: "37.5px",
+        34: "34px",
+      },
       colors: {
         "orange-app": "#ED6119",
         "light-orange": "#FF9935",
