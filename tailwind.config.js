@@ -11,10 +11,6 @@ module.exports = {
       margin: {
         17: "17.17px",
       },
-      lineHeight: {
-        18.75: "18.75px",
-        21: "21px",
-      },
       borderRadius: {
         10: "10px",
         20: "20px",
@@ -40,6 +36,8 @@ module.exports = {
       lineHeight: {
         37.5: "37.5px",
         34: "34px",
+        18.75: "18.75px",
+        21: "21px",
       },
       colors: {
         "orange-app": "#ED6119",

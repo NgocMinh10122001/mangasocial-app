@@ -1,7 +1,16 @@
 import React from "react";
-import { Image, ScrollView, Text, View } from "react-native";
+import {
+  Dimensions,
+  FlatList,
+  Image,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import AntDesign from "@expo/vector-icons/AntDesign";
+const { width } = Dimensions.get("window");
 const genres: any[] = [
   {
     name: "Sword Hero",
@@ -67,9 +76,15 @@ const genres: any[] = [
     img: "https://cmsassets.rgpub.io/sanity/images/dsfx7636/game_data/2984fc54c2eccfed432ac8a78e90757b574178c4-418x473.jpg?auto=format&fit=fill&q=80&w=418",
   },
 ];
+const genres1: any[] = genres.slice(0, 2);
+const genres2: any[] = genres.slice(2, 3);
+const genres3: any[] = genres.slice(3, 7);
+const genres4: any[] = genres.slice(7, 8);
+const genres5: any[] = genres.slice(8, 12);
+
 function Genres() {
   return (
-    <View className="genre-container font-sans">
+    <View className="genre-container font-sans w-full h-full pb-14">
       <View className=" w-full  flex-row justify-between items-center bg-white">
         <Text className="text-orange-app  font-normal leading-[46.09px]  text-[32px]">
           Genres
@@ -92,11 +107,77 @@ function Genres() {
           Delight your passion with Manga Social
         </Text>
       </View>
-      <View className="flat-list grid grid-cols-2">
-        {genres &&
-          genres.length > 0 &&
-          genres.map((item) => <GenreItem key={item?.id} item={item} />)}
-      </View>
+      <FlatList
+        style={styles.flatlist}
+        scrollEnabled={false}
+        className="genres1"
+        numColumns={2}
+        contentContainerStyle={{ gap: 20 }}
+        columnWrapperStyle={{ gap: 20 }}
+        data={genres1}
+        renderItem={({ item }) => <GenreItem item={item} />}
+      ></FlatList>
+      <FlatList
+        style={[styles.flatlist]}
+        scrollEnabled={false}
+        className="genres2"
+        numColumns={2}
+        contentContainerStyle={{
+          gap: 20,
+        }}
+        columnWrapperStyle={{ gap: 20 }}
+        data={genres2}
+        renderItem={({ item }) => <GenreItem item={item} />}
+      ></FlatList>
+      <FlatList
+        style={styles.flatlist}
+        scrollEnabled={false}
+        className="genres3"
+        numColumns={2}
+        contentContainerStyle={{ gap: 20 }}
+        columnWrapperStyle={{ gap: 20 }}
+        data={genres3}
+        renderItem={({ item }) => <GenreItem item={item} />}
+      ></FlatList>
+      <FlatList
+        style={styles.flatlist}
+        scrollEnabled={false}
+        className="genres4"
+        numColumns={2}
+        contentContainerStyle={{ gap: 20 }}
+        columnWrapperStyle={{ gap: 20 }}
+        data={genres4}
+        renderItem={({ item }) => <GenreItem item={item} />}
+      ></FlatList>
+      <FlatList
+        style={styles.flatlist}
+        scrollEnabled={false}
+        className="genres5"
+        numColumns={2}
+        contentContainerStyle={{ gap: 20 }}
+        columnWrapperStyle={{ gap: 20 }}
+        data={genres5}
+        renderItem={({ item }) => <GenreItem item={item} />}
+      ></FlatList>
+      {/* <FlatList
+        style={{
+          flex: 1,
+          marginTop: 10,
+          marginBottom: 70,
+        }}
+        showsVerticalScrollIndicator={false}
+        horizontal={false}
+        scrollEnabled={false}
+        data={genres}
+        numColumns={2}
+        columnWrapperStyle={{ gap: 8 }}
+        contentContainerStyle={styles.container}
+        renderItem={({ item }) => (
+          <View style={item?.id !== 3 ? styles.wrapper : styles.w}>
+            <GenreItem item={item} />
+          </View>
+        )}
+      ></FlatList> */}
     </View>
   );
 }
@@ -105,14 +186,49 @@ export default Genres;
 
 export const GenreItem = (item: any) => {
   return (
-    <View className="bg-black rounded-10">
+    <View
+      className={` relative ${
+        item?.item?.id !== 9 && item?.item?.id !== 10
+          ? "h-[107px]"
+          : "h-[211px]"
+      }`}
+      style={
+        item?.item?.id !== 3 && item?.item?.id !== 8
+          ? styles.itemRenderList
+          : styles.itemRenderList2
+      }
+    >
       <Image
         source={{
           uri: `${item?.item?.img}`,
         }}
-        width={29}
-        height={29}
+        className=" h-full"
+        style={
+          item?.item?.id !== 3 && item?.item?.id !== 8 ? {} : styles.image70
+        }
       ></Image>
+      <Text className="absolute bottom-0 text-white font-normal text-base !leading-18.75 w-full text-center">
+        {item?.item?.name}
+      </Text>
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  flatlist: {
+    flex: 1,
+    marginTop: 20,
+  },
+  itemRenderList: {
+    flex: 1,
+  },
+  itemRenderList2: {
+    width: "100%",
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  image70: {
+    width: "80%",
+  },
+});

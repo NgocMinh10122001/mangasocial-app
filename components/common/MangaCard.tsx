@@ -12,7 +12,7 @@ interface IManga {
 interface IProps {
   data: IManga | any;
 }
-const { width, height } = Dimensions.get("window");
+const { width } = Dimensions.get("window");
 function MangaCard(props: IProps) {
   const { data } = props;
   return (

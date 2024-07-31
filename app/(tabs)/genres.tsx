@@ -1,4 +1,10 @@
-import { Platform, SafeAreaView, StatusBar, View } from "react-native";
+import {
+  Platform,
+  SafeAreaView,
+  ScrollView,
+  StatusBar,
+  View,
+} from "react-native";
 
 import HomeScreens from "@/components/screens/HomeScreens";
 import Genres from "@/components/genres/Genres";
@@ -15,9 +21,9 @@ export default function GenresScreen() {
         backgroundColor={"#000"}
         barStyle={"dark-content"}
       />
-      <View className="h-full w-full  px-[28.43px] pt-[17.17px] ">
+      <ScrollView className="h-full w-full  px-[28.43px] pt-[17.17px]  ">
         <Genres />
-      </View>
+      </ScrollView>
     </SafeAreaView>
   );
 }
