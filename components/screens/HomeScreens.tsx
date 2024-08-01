@@ -90,15 +90,15 @@ function HomeScreens() {
         <View className="item-left w-1/3 relative flex-row">
           <Image
             source={require("../../assets/images/footer-home1.png")}
-            className="w-[47px] h-[76px] rounded-[5px] z-10 "
+            className="w-[54px] h-[76px] rounded-[5px] z-10 "
           />
           <Image
             source={require("../../assets/images/footer-left-2.png")}
-            className="w-[47px] h-[76px] rounded-[5px] absolute  z-0 -top-1/4 left-[40%]"
+            className="w-[54px] h-[76px] rounded-[5px] absolute  z-0 -top-1/4 left-[40%]"
           />
           <Image
             source={require("../../assets/images/footer-left-3.png")}
-            className="w-[47px] h-[76px] rounded-[5px] absolute right-1 z-10 -bottom-1/4"
+            className="w-[54px] h-[76px] rounded-[5px] absolute right-1 z-10 -bottom-1/4"
           />
         </View>
         <View className="item-middle w-1/3">
@@ -110,15 +110,15 @@ function HomeScreens() {
         <View className="item-right w-1/3 flex-row-reverse relative ">
           <Image
             source={require("../../assets/images/footer-right-1.png")}
-            className="w-[47px] h-[76px] rounded-[5px] absolute left-1 z-10 -bottom-1/4"
+            className="w-[54px] h-[76px] rounded-[5px] absolute left-1 z-10 -bottom-1/4"
           />
           <Image
             source={require("../../assets/images/footer-right-2.png")}
-            className="w-[47px] h-[76px] rounded-[5px] absolute  z-0 -top-1/4 right-[40%]"
+            className="w-[54px] h-[76px] rounded-[5px] absolute  z-0 -top-1/4 right-[40%]"
           />
           <Image
             source={require("../../assets/images/footer-right-3.png")}
-            className="w-[47px] h-[76px] rounded-[5px]  z-10 right-0 "
+            className="w-[54px] h-[76px] rounded-[5px]  z-10 right-0 "
           />
         </View>
       </View>

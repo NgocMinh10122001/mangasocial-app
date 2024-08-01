@@ -79,21 +79,28 @@ function NewRealse(props: IProps) {
           color="#222222"
         />
       </View>
-      <View
-        className="mt-1   w-full"
-        style={{
-          flex: 1,
-          flexDirection: "row",
-          justifyContent: "space-between",
-          flexWrap: "wrap",
-        }}
-      >
-        {mangas.map((item) => (
-          <MangaCard data={item} key={item.id} />
-        ))}
-      </View>
+      <FlatList
+        style={{ flex: 1, marginTop: 4 }}
+        scrollEnabled={false}
+        numColumns={4}
+        horizontal={false}
+        contentContainerStyle={styles.contentContainerStyle}
+        columnWrapperStyle={styles.columnWrapperStyle}
+        data={mangas}
+        renderItem={({ item }) => <MangaCard data={item} height={112} />}
+        className="content"
+      ></FlatList>
     </View>
   );
 }
 
 export default NewRealse;
+
+const styles = StyleSheet.create({
+  contentContainerStyle: {
+    gap: 10,
+  },
+  columnWrapperStyle: {
+    gap: 10,
+  },
+});

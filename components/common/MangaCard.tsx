@@ -1,5 +1,5 @@
 import React from "react";
-import { Dimensions, Image, Text, View } from "react-native";
+import { Dimensions, Image, Text, TouchableOpacity } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
 
 interface IManga {
@@ -11,17 +11,18 @@ interface IManga {
 }
 interface IProps {
   data: IManga | any;
+  height: number | string;
 }
 const { width } = Dimensions.get("window");
 function MangaCard(props: IProps) {
-  const { data } = props;
+  const { data, height } = props;
   return (
-    <View>
+    <TouchableOpacity style={{ flex: 1 }}>
       <Image
         source={{
           uri: `${data?.thumbnail}`,
         }}
-        style={{ width: width * 0.2, height: 98 }}
+        style={{ width: "100%", height: height as number }}
         className="rounded-lg"
       />
       <Text className="font-light text-xs">{data?.title}</Text>
@@ -31,7 +32,7 @@ function MangaCard(props: IProps) {
       <Text className="font-extralight text-[8px] leading-[10.55px]">
         <FontAwesome name="star" size={9} color="#F3EB2F" /> {data?.rate}
       </Text>
-    </View>
+    </TouchableOpacity>
   );
 }
 

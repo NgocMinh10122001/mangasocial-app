@@ -32,12 +32,14 @@ module.exports = {
       fontSize: {
         32: "32px",
         29: "29px",
+        15: "15px",
       },
       lineHeight: {
         37.5: "37.5px",
         34: "34px",
         18.75: "18.75px",
         21: "21px",
+        17.58: "17.58px",
       },
       colors: {
         "orange-app": "#ED6119",

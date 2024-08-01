@@ -63,7 +63,10 @@ export default function TabLayout() {
         headerShown: false,
         tabBarStyle: {
           height: 76,
-          backgroundColor: "#ED6119",
+          backgroundColor: "#ed6119",
+          shadowColor: "#ed6119",
+          shadowOpacity: 1,
+          shadowOffset: { width: 0, height: 0 },
           borderRadius: 5,
           gap: 0,
         },
@@ -78,19 +81,18 @@ export default function TabLayout() {
             options={{
               tabBarIcon: ({ color, focused }) => (
                 <Animated.View
-                  className={` bg-orange-app rounded-full h-[62px] w-[62px] flex-row justify-center items-center relative !z-10 ${
-                    active === index && "-translate-y-[16px]"
+                  className={`  h-[62px] w-[62px] flex-row justify-center items-center relative !z-10 ${
+                    active === index && ""
                   }`}
                   onTouchStart={() => {
                     setActive(index);
-                    translateY.value = withTiming(-20, { duration: 300 });
                   }}
                 >
                   {active === index && (
                     <AnimatedSvg
                       viewBox="0 0 110 60"
                       style={[styles.activeBackground]}
-                      className="absolute w-[120px] h-[100px] -bottom-[29.2px] !z-0 "
+                      className="absolute w-[120px] h-[100px] -top-[15.5%] !z-0 "
                     >
                       <Path
                         fill="#ffffff"
@@ -99,9 +101,10 @@ export default function TabLayout() {
                     </AnimatedSvg>
                   )}
                   <View
-                    className={` bg-orange-app rounded-full h-full w-full flex-row justify-center items-center relative !z-10 ${
-                      active === index && `  `
+                    className={` bg-orange-app rounded-full  flex-row justify-center items-center  relative !z-10 ${
+                      active === index && ` h-full w-full`
                     } `}
+                    style={[styles.shadow]}
                   >
                     <Text className="text-white absolute z-[9999]">
                       {item?.title}
@@ -120,5 +123,11 @@ export default function TabLayout() {
 const styles = StyleSheet.create({
   activeBackground: {
     position: "absolute",
+  },
+  shadow: {
+    shadowColor: "#ed6119",
+    shadowOpacity: 1,
+    shadowRadius: 24,
+    shadowOffset: { width: 0, height: 10 },
   },
 });

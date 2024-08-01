@@ -1,7 +1,20 @@
 import React from "react";
 import { StyleSheet, View, Text, Image, TouchableOpacity } from "react-native";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { Feather, MaterialCommunityIcons } from "@expo/vector-icons";
+import { FlatList } from "react-native";
+import MangaCard from "../common/MangaCard";
+import Pagination from "../common/pagination/Pagination";
 
+interface IData {
+  id: string;
+  title: string;
+  thumbnail: string;
+  chapter: string;
+  urlManga: string;
+  urlChapter: string;
+  chapterNew: string;
+  rate: string;
+}
 const App = () => {
   const books = [
     {
@@ -95,15 +108,128 @@ const App = () => {
       rating: 5,
     },
   ];
+  const mangas: IData[] = [
+    {
+      id: "0",
+      title: "Briar",
+      thumbnail:
+        "https://cmsassets.rgpub.io/sanity/images/dsfx7636/game_data_live/8828f92a1ed9c410b5be0a5424f95b3a8f641e5a-496x560.jpg?auto=format&fit=fill&q=80&w=496",
+
+      chapter: "21",
+      urlManga: "",
+      urlChapter: "",
+      chapterNew: "22",
+      rate: "5",
+    },
+    {
+      id: "1",
+      title: "Briar",
+      thumbnail:
+        "https://cmsassets.rgpub.io/sanity/images/dsfx7636/game_data_live/8828f92a1ed9c410b5be0a5424f95b3a8f641e5a-496x560.jpg?auto=format&fit=fill&q=80&w=496",
+
+      chapter: "21",
+      urlManga: "",
+      urlChapter: "",
+      chapterNew: "22",
+      rate: "5",
+    },
+    {
+      id: "2",
+      title: "Briar",
+      thumbnail:
+        "https://cmsassets.rgpub.io/sanity/images/dsfx7636/game_data_live/8828f92a1ed9c410b5be0a5424f95b3a8f641e5a-496x560.jpg?auto=format&fit=fill&q=80&w=496",
+
+      chapter: "21",
+      urlManga: "",
+      urlChapter: "",
+      chapterNew: "22",
+      rate: "5",
+    },
+    {
+      id: "3",
+      title: "Briar",
+      thumbnail:
+        "https://cmsassets.rgpub.io/sanity/images/dsfx7636/game_data_live/8828f92a1ed9c410b5be0a5424f95b3a8f641e5a-496x560.jpg?auto=format&fit=fill&q=80&w=496",
+
+      chapter: "21",
+      urlManga: "",
+      urlChapter: "",
+      chapterNew: "22",
+      rate: "5",
+    },
+    {
+      id: "0",
+      title: "Briar",
+      thumbnail:
+        "https://cmsassets.rgpub.io/sanity/images/dsfx7636/game_data_live/8828f92a1ed9c410b5be0a5424f95b3a8f641e5a-496x560.jpg?auto=format&fit=fill&q=80&w=496",
+
+      chapter: "21",
+      urlManga: "",
+      urlChapter: "",
+      chapterNew: "22",
+      rate: "5",
+    },
+    {
+      id: "1",
+      title: "Briar",
+      thumbnail:
+        "https://cmsassets.rgpub.io/sanity/images/dsfx7636/game_data_live/8828f92a1ed9c410b5be0a5424f95b3a8f641e5a-496x560.jpg?auto=format&fit=fill&q=80&w=496",
+
+      chapter: "21",
+      urlManga: "",
+      urlChapter: "",
+      chapterNew: "22",
+      rate: "5",
+    },
+    {
+      id: "2",
+      title: "Briar",
+      thumbnail:
+        "https://cmsassets.rgpub.io/sanity/images/dsfx7636/game_data_live/8828f92a1ed9c410b5be0a5424f95b3a8f641e5a-496x560.jpg?auto=format&fit=fill&q=80&w=496",
+
+      chapter: "21",
+      urlManga: "",
+      urlChapter: "",
+      chapterNew: "22",
+      rate: "5",
+    },
+    {
+      id: "3",
+      title: "Briar",
+      thumbnail:
+        "https://cmsassets.rgpub.io/sanity/images/dsfx7636/game_data_live/8828f92a1ed9c410b5be0a5424f95b3a8f641e5a-496x560.jpg?auto=format&fit=fill&q=80&w=496",
+
+      chapter: "21",
+      urlManga: "",
+      urlChapter: "",
+      chapterNew: "22",
+      rate: "5",
+    },
+    {
+      id: "3",
+      title: "Briar",
+      thumbnail:
+        "https://cmsassets.rgpub.io/sanity/images/dsfx7636/game_data_live/8828f92a1ed9c410b5be0a5424f95b3a8f641e5a-496x560.jpg?auto=format&fit=fill&q=80&w=496",
+
+      chapter: "21",
+      urlManga: "",
+      urlChapter: "",
+      chapterNew: "22",
+      rate: "5",
+    },
+  ];
 
   return (
-    <View style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.headerText}>Incoming</Text>
-        <View style={styles.headerIcons}>
+    <View style={styles.container} className=" pb-14">
+      <View className=" w-full  flex-row justify-between items-center bg-white">
+        <Text className="text-orange-app  font-normal leading-[46.09px]  text-[32px]">
+          Incoming
+        </Text>
+        <View className="flex-row items-center gap-2">
           <Image
             source={require("../../assets/images/Search_light.png")}
-            style={styles.icon}
+            width={29}
+            height={29}
           />
           <MaterialCommunityIcons
             name="bell-badge-outline"
@@ -112,76 +238,62 @@ const App = () => {
           />
         </View>
       </View>
-
-      <View style={styles.content}>
-        <View style={styles.featured}>
+      <View className="banner my-5 flex-row justify-between items-center w-full ">
+        <View className="item-left w-1/3 relative flex-row">
+          <Image
+            source={require("../../assets/images/footer-home1.png")}
+            className="w-[54px] h-[76px] rounded-[5px] z-10 "
+          />
+          <Image
+            source={require("../../assets/images/footer-left-2.png")}
+            className="w-[54px] h-[76px] rounded-[5px] absolute  z-0 -top-1/4 left-[40%]"
+          />
+          <Image
+            source={require("../../assets/images/footer-left-3.png")}
+            className="w-[54px] h-[76px] rounded-[5px] absolute right-1 z-10 -bottom-1/4"
+          />
+        </View>
+        <View className="item-middle w-1/3">
           <Image
             source={require("../../assets/images/footer-home-middle.png")}
-            style={styles.featuredImage}
+            className="w-full h-[101px] rounded-[5px]"
           />
-          <View style={styles.featuredText}>
-            <Text style={styles.featuredTitle}>Love language</Text>
-          </View>
         </View>
-
-        <View style={styles.books}>
-          {books.map((book, index) => (
-            <TouchableOpacity key={index} style={styles.book}>
-              <Image source={book.image} style={styles.bookImage} />
-              <View style={styles.bookInfo}>
-                <Text style={styles.bookTitle}>{book.title}</Text>
-                <Text style={styles.bookChapter}>Chapter: {book.chapter}</Text>
-                <View style={styles.bookRating}>
-                  <Image
-                    source={require("../../assets/images/footer-home-middle.png")}
-                    style={styles.starIcon}
-                  />
-                  <Text style={styles.bookRatingText}>{book.rating}</Text>
-                </View>
-              </View>
-            </TouchableOpacity>
-          ))}
+        <View className="item-right w-1/3 flex-row-reverse relative ">
+          <Image
+            source={require("../../assets/images/footer-right-1.png")}
+            className="w-[54px] h-[76px] rounded-[5px] absolute left-1 z-10 -bottom-1/4"
+          />
+          <Image
+            source={require("../../assets/images/footer-right-2.png")}
+            className="w-[54px] h-[76px] rounded-[5px] absolute  z-0 -top-1/4 right-[40%]"
+          />
+          <Image
+            source={require("../../assets/images/footer-right-3.png")}
+            className="w-[54px] h-[76px] rounded-[5px]  z-10 right-0 "
+          />
         </View>
       </View>
-
-      <View style={styles.pagination}>
-        <TouchableOpacity style={styles.paginationButton}>
-          <Text style={styles.paginationButtonText}>1</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.paginationButton}>
-          <Text style={styles.paginationButtonText}>2</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.paginationButton}>
-          <Text style={styles.paginationButtonText}>3</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.paginationButton}>
-          <Text style={styles.paginationButtonText}>4</Text>
-        </TouchableOpacity>
-        <Text style={styles.paginationEllipsis}>...</Text>
-        <TouchableOpacity style={styles.paginationButton}>
-          <Text style={styles.paginationButtonText}>19</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.paginationButton}>
-          <Text style={styles.paginationButtonText}>20</Text>
-        </TouchableOpacity>
+      <View className="dropdown w-full rounded-10 flex-row justify-end h-7 mb-5">
+        <View className="w-3/4 bg-orange-app rounded-10 flex-row justify-between items-center px-2">
+          <Text className="text-white font-normal text-15 leading-17.58">
+            Love language
+          </Text>
+          <Feather name="chevron-down" size={24} color="white" />
+        </View>
       </View>
-
-      <View style={styles.footer}>
-        <TouchableOpacity style={styles.footerButton}>
-          <Text style={styles.footerButtonText}>Home</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.footerButton}>
-          <Text style={styles.footerButtonText}>Genres</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.footerButtonActive}>
-          <Text style={styles.footerButtonText}>Incoming</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.footerButton}>
-          <Text style={styles.footerButtonText}>Rank</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.footerButton}>
-          <Text style={styles.footerButtonText}>Account</Text>
-        </TouchableOpacity>
+      <FlatList
+        scrollEnabled={false}
+        numColumns={3}
+        horizontal={false}
+        contentContainerStyle={styles.contentContainerStyle}
+        columnWrapperStyle={styles.columnWrapperStyle}
+        data={mangas}
+        renderItem={({ item }) => <MangaCard data={item} height={112} />}
+        className="content"
+      ></FlatList>
+      <View className="pagination mt-5">
+        <Pagination />
       </View>
     </View>
   );
@@ -192,91 +304,13 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#fff",
   },
-  header: {
-    height: 50,
-    backgroundColor: "#FFA500",
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
-    paddingHorizontal: 16,
+  contentContainerStyle: {
+    gap: 18,
   },
-  headerText: {
-    fontSize: 20,
-    fontWeight: "bold",
-    color: "#fff",
+  columnWrapperStyle: {
+    gap: 18,
   },
-  headerIcons: {
-    flexDirection: "row",
-  },
-  icon: {
-    width: 24,
-    height: 24,
-    marginRight: 16,
-  },
-  content: {
-    flex: 1,
-    paddingHorizontal: 16,
-  },
-  featured: {
-    height: 150,
-    marginTop: 16,
-    borderRadius: 8,
-    overflow: "hidden",
-  },
-  featuredImage: {
-    width: "100%",
-    height: "100%",
-  },
-  featuredText: {
-    position: "absolute",
-    bottom: 16,
-    left: 16,
-  },
-  featuredTitle: {
-    fontSize: 18,
-    fontWeight: "bold",
-    color: "#fff",
-  },
-  books: {
-    marginTop: 16,
-    flexDirection: "row",
-    flexWrap: "wrap",
-    justifyContent: "space-between",
-  },
-  book: {
-    width: "48%",
-    marginBottom: 16,
-    borderRadius: 8,
-    overflow: "hidden",
-  },
-  bookImage: {
-    width: "100%",
-    height: 150,
-  },
-  bookInfo: {
-    padding: 16,
-  },
-  bookTitle: {
-    fontSize: 16,
-    fontWeight: "bold",
-    marginBottom: 4,
-  },
-  bookChapter: {
-    fontSize: 12,
-    marginBottom: 4,
-  },
-  bookRating: {
-    flexDirection: "row",
-    alignItems: "center",
-  },
-  starIcon: {
-    width: 16,
-    height: 16,
-    marginRight: 4,
-  },
-  bookRatingText: {
-    fontSize: 12,
-  },
+
   pagination: {
     flexDirection: "row",
     justifyContent: "center",
@@ -296,29 +330,6 @@ const styles = StyleSheet.create({
   },
   paginationEllipsis: {
     fontSize: 14,
-  },
-  footer: {
-    height: 60,
-    backgroundColor: "#FFA500",
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-around",
-  },
-  footerButton: {
-    paddingHorizontal: 16,
-    paddingVertical: 8,
-    borderRadius: 4,
-  },
-  footerButtonActive: {
-    paddingHorizontal: 16,
-    paddingVertical: 8,
-    borderRadius: 4,
-    backgroundColor: "#FFD700",
-  },
-  footerButtonText: {
-    fontSize: 14,
-    fontWeight: "bold",
-    color: "#fff",
   },
 });
 

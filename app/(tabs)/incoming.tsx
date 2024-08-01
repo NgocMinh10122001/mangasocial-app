@@ -21,7 +21,7 @@ export default function IncomingScreen() {
         backgroundColor={"#000"}
         barStyle={"dark-content"}
       />
-      <ScrollView className="h-full  px-[28.43px] pt-[17.17px] font-[Satisfy]">
+      <ScrollView className="h-full  px-[28.43px] pt-[17.17px] font-[Satisfy] ">
         <Incoming></Incoming>
       </ScrollView>
     </SafeAreaView>
