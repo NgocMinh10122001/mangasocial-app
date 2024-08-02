@@ -7,7 +7,7 @@ export default function HomeScreen() {
   return (
     <SafeAreaView
       style={{ flex: 1 }}
-      className={`bg-white  h-full ${ios ? "mt-0" : "mt-3"} `}
+      className={`  h-full ${ios ? "mt-0" : "mt-3"} `}
     >
       <StatusBar
         animated={true}

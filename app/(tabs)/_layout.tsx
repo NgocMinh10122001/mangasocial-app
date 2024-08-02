@@ -67,7 +67,8 @@ export default function TabLayout() {
           shadowColor: "#ed6119",
           shadowOpacity: 1,
           shadowOffset: { width: 0, height: 0 },
-          borderRadius: 5,
+          borderRadius: 10,
+          paddingHorizontal: 0,
           gap: 0,
         },
       }}
@@ -79,6 +80,7 @@ export default function TabLayout() {
             key={index}
             name={`${item?.name}`}
             options={{
+              title: item?.title,
               tabBarIcon: ({ color, focused }) => (
                 <Animated.View
                   className={`  h-[62px] w-[62px] flex-row justify-center items-center relative !z-10 ${
