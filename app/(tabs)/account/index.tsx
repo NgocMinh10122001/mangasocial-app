@@ -1,5 +1,4 @@
-import Login from "@/components/login/Login";
-import HomeScreens from "@/components/screens/HomeScreens";
+import Account from "@/components/account/Account";
 import { Platform, SafeAreaView, StatusBar, Text, View } from "react-native";
 
 const ios = Platform.OS === "ios";
@@ -11,7 +10,7 @@ export default function AccountScreen() {
     >
       {/* px-16.43px */}
       <View className="h-full  px-[28.43px] pt-[17.17px] ">
-        <HomeScreens />
+        <Account />
       </View>
     </SafeAreaView>
   );

@@ -220,8 +220,8 @@ const App = () => {
   ];
 
   return (
-    <View style={styles.container} className=" pb-14">
-      <View className=" w-full  flex-row justify-between items-center bg-white">
+    <View className=" pb-14">
+      <View className=" w-full  flex-row justify-between items-center ">
         <Text className="text-orange-app  font-normal leading-[46.09px]  text-[32px]">
           Incoming
         </Text>
@@ -300,10 +300,6 @@ const App = () => {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-  },
   contentContainerStyle: {
     gap: 18,
   },
