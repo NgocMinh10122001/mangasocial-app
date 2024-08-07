@@ -40,9 +40,11 @@ module.exports = {
         18.75: "18.75px",
         21: "21px",
         17.58: "17.58px",
+        23.44: "23.44px",
       },
       colors: {
         "orange-app": "#ED6119",
+        f8: "#f8f8f8",
         "light-orange": "#FF9935",
         "rate-star": "#FF9935",
       },

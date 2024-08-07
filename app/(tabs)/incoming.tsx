@@ -14,14 +14,14 @@ export default function IncomingScreen() {
   return (
     <SafeAreaView
       style={{ flex: 1 }}
-      className={`  h-full ${ios ? "mt-0" : "mt-3"} `}
+      className={`  h-full ${ios ? "mt-0" : "mt-3"} bg-f8`}
     >
       <StatusBar
         animated={true}
         backgroundColor={"#000"}
         barStyle={"dark-content"}
       />
-      <ScrollView className="h-full  px-[28.43px] pt-[17.17px] font-[Satisfy] ">
+      <ScrollView className="h-full  px-[28.43px]  ">
         <Incoming></Incoming>
       </ScrollView>
     </SafeAreaView>

@@ -85,7 +85,7 @@ const genres5: any[] = genres.slice(8, 12);
 function Genres() {
   return (
     <View className="genre-container font-sans w-full h-full pb-14">
-      <View className=" w-full  flex-row justify-between items-center bg-white">
+      <View className=" w-full  flex-row justify-between items-center ">
         <Text className="text-orange-app  font-normal leading-[46.09px]  text-[32px]">
           Genres
         </Text>

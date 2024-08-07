@@ -6,8 +6,10 @@ import Carousel, { Pagination } from "react-native-snap-carousel";
 import { ScrollView } from "react-native";
 import NewRealse from "./NewRealse";
 import MangaCardSlide from "../common/MangaCardSlide";
+import TrendingCarousel from "../common/trending-carousel/TrendingCarousel";
 
 interface Item {
+  id: number | string;
   title: string;
   subtitle: string;
   illustration: string;
@@ -15,24 +17,28 @@ interface Item {
 
 const data: Item[] = [
   {
+    id: 1,
     title: "Item 1",
     subtitle: "Subtitle 1",
     illustration:
       "https://cmsassets.rgpub.io/sanity/images/dsfx7636/game_data_live/8828f92a1ed9c410b5be0a5424f95b3a8f641e5a-496x560.jpg?auto=format&fit=fill&q=80&w=496",
   },
   {
+    id: 2,
     title: "Item 2",
     subtitle: "Subtitle 2",
     illustration:
       "https://cmsassets.rgpub.io/sanity/images/dsfx7636/game_data_live/8828f92a1ed9c410b5be0a5424f95b3a8f641e5a-496x560.jpg?auto=format&fit=fill&q=80&w=496",
   },
   {
+    id: 3,
     title: "Item 1",
     subtitle: "Subtitle 1",
     illustration:
       "https://cmsassets.rgpub.io/sanity/images/dsfx7636/game_data_live/8828f92a1ed9c410b5be0a5424f95b3a8f641e5a-496x560.jpg?auto=format&fit=fill&q=80&w=496",
   },
   {
+    id: 4,
     title: "Item 2",
     subtitle: "Subtitle 2",
     illustration:
@@ -60,7 +66,7 @@ function HomeScreens() {
       </View>
       <SearchManga />
       <View className="mt-4 flex justify-center items-center ">
-        <Carousel
+        {/* <Carousel
           data={data}
           renderItem={({ item }) => <MangaCardSlide item={item} />}
           sliderWidth={width}
@@ -72,6 +78,16 @@ function HomeScreens() {
           slideStyle={{ display: "flex", justifyContent: "center" }}
           onSnapToItem={(index) => setActiveSlide(index)}
         />
+        <Pagination
+          dotsLength={data.length}
+          activeDotIndex={activeSlide}
+          containerStyle={styles.paginationContainer}
+          dotStyle={styles.activeDot}
+          inactiveDotStyle={styles.inactiveDot}
+          inactiveDotOpacity={0.4}
+          inactiveDotScale={0.6}
+        /> */}
+        <TrendingCarousel post={data} />
         <Pagination
           dotsLength={data.length}
           activeDotIndex={activeSlide}
