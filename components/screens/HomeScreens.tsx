@@ -7,13 +7,7 @@ import { ScrollView } from "react-native";
 import NewRealse from "./NewRealse";
 import MangaCardSlide from "../common/MangaCardSlide";
 import TrendingCarousel from "../common/trending-carousel/TrendingCarousel";
-
-interface Item {
-  id: number | string;
-  title: string;
-  subtitle: string;
-  illustration: string;
-}
+import { IData, Item } from "@/type";
 
 const data: Item[] = [
   {
@@ -46,6 +40,56 @@ const data: Item[] = [
   },
   // Add more items as needed
 ];
+const mangas: IData[] = [
+  {
+    id: "0",
+    title: "Briar",
+    thumbnail:
+      "https://cmsassets.rgpub.io/sanity/images/dsfx7636/game_data_live/8828f92a1ed9c410b5be0a5424f95b3a8f641e5a-496x560.jpg?auto=format&fit=fill&q=80&w=496",
+
+    chapter: "21",
+    urlManga: "",
+    urlChapter: "",
+    chapterNew: "22",
+    rate: "5",
+  },
+  {
+    id: "1",
+    title: "Briar",
+    thumbnail:
+      "https://cmsassets.rgpub.io/sanity/images/dsfx7636/game_data_live/8828f92a1ed9c410b5be0a5424f95b3a8f641e5a-496x560.jpg?auto=format&fit=fill&q=80&w=496",
+
+    chapter: "21",
+    urlManga: "",
+    urlChapter: "",
+    chapterNew: "22",
+    rate: "5",
+  },
+  {
+    id: "2",
+    title: "Briar",
+    thumbnail:
+      "https://cmsassets.rgpub.io/sanity/images/dsfx7636/game_data_live/8828f92a1ed9c410b5be0a5424f95b3a8f641e5a-496x560.jpg?auto=format&fit=fill&q=80&w=496",
+
+    chapter: "21",
+    urlManga: "",
+    urlChapter: "",
+    chapterNew: "22",
+    rate: "5",
+  },
+  {
+    id: "3",
+    title: "Briar",
+    thumbnail:
+      "https://cmsassets.rgpub.io/sanity/images/dsfx7636/game_data_live/8828f92a1ed9c410b5be0a5424f95b3a8f641e5a-496x560.jpg?auto=format&fit=fill&q=80&w=496",
+
+    chapter: "21",
+    urlManga: "",
+    urlChapter: "",
+    chapterNew: "22",
+    rate: "5",
+  },
+];
 
 const { width, height } = Dimensions.get("window");
 
@@ -66,13 +110,13 @@ function HomeScreens() {
       </View>
       <SearchManga />
       <View className="mt-4 flex justify-center items-center ">
-        {/* <Carousel
+        <Carousel
           data={data}
           renderItem={({ item }) => <MangaCardSlide item={item} />}
           sliderWidth={width}
           firstItem={1}
-          itemWidth={131}
-          // inactiveSlideOpacity={0.6}
+          itemWidth={120}
+          inactiveSlideOpacity={0.8}
           hasParallaxImages={true}
           loop={true}
           slideStyle={{ display: "flex", justifyContent: "center" }}
@@ -86,8 +130,8 @@ function HomeScreens() {
           inactiveDotStyle={styles.inactiveDot}
           inactiveDotOpacity={0.4}
           inactiveDotScale={0.6}
-        /> */}
-        <TrendingCarousel post={data} />
+        />
+        {/* <TrendingCarousel post={data} />
         <Pagination
           dotsLength={data.length}
           activeDotIndex={activeSlide}
@@ -96,12 +140,16 @@ function HomeScreens() {
           inactiveDotStyle={styles.inactiveDot}
           inactiveDotOpacity={0.4}
           inactiveDotScale={0.6}
-        />
+        /> */}
       </View>
-      <NewRealse data={[]} title={"New Realease Manga"} />
-      <NewRealse data={[]} title={"Manga love story"} />
-      <NewRealse data={[]} title={"Manga about swordplay"} />
-      <NewRealse data={[]} title={"Manga novels"} />
+      <NewRealse data={mangas} showTitle={true} title={"New Realease Manga"} />
+      <NewRealse data={mangas} showTitle={true} title={"Manga love story"} />
+      <NewRealse
+        data={mangas}
+        showTitle={true}
+        title={"Manga about swordplay"}
+      />
+      <NewRealse data={mangas} showTitle={true} title={"Manga novels"} />
       <View className="banner-footer mt-6 flex-row justify-between items-center w-full pb-6">
         <View className="item-left w-1/3 relative flex-row">
           <Image

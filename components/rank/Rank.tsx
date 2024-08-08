@@ -14,6 +14,10 @@ import Carousel, { Pagination } from "react-native-snap-carousel";
 import MangaCardSlide from "../common/MangaCardSlide";
 import MangaCard from "../common/MangaCard";
 import MangaCardStory from "../common/rank/story/MangaCardStory";
+import FlatlistCustom from "../common/custom/FlatlistCustom";
+import TitleCustomOrange from "../common/custom/TitleCustomOrange";
+import NewRealse from "../screens/NewRealse";
+import FlatlistCustomRow from "../common/custom/FlatlistCustomRow";
 
 const data: any[] = [
   {
@@ -208,36 +212,29 @@ export default function Rank() {
       </View>
 
       <View style={styles.section}>
-        <View className="w-[76px] h-[7px] rounded-[5px] bg-orange-app mb-3"></View>
-        <Text style={styles.sectionTitle} className="font-normal">
-          Top 10 hot stories of the week
-        </Text>
+        <TitleCustomOrange
+          title="Top 10 hot stories of the week"
+          showTitle={true}
+        />
 
-        <FlatList
-          scrollEnabled={false}
-          numColumns={4}
-          contentContainerStyle={styles.contentContainerStyle}
-          columnWrapperStyle={styles.columnWrapperStyle}
+        <FlatlistCustom
           data={mangas}
-          renderItem={({ item }) => <MangaCard data={item} height={112} />}
-          className="content "
-        ></FlatList>
+          styleContainer={"mt-4"}
+          columnWrapperStyle={{ gap: 10 }}
+          contentContainerStyle={{ gap: 10 }}
+          horizontal={false}
+          numColumns={4}
+          scrollEnable={false}
+          styleItem={{ width: "w-full", height: "h-[112px]" }}
+        />
         <TouchableOpacity className="w-full flex-row justify-center">
           <Text style={styles.seeMore}>Xem thêm »</Text>
         </TouchableOpacity>
       </View>
 
       <View style={styles.section}>
-        <View className="w-[76px] h-[7px] rounded-[5px] bg-orange-app mb-3"></View>
-        <Text style={styles.sectionTitle} className="font-normal">
-          Review of stories
-        </Text>
-        <FlatList
-          scrollEnabled={false}
-          data={mangas}
-          renderItem={({ item }) => <MangaCardStory data={item} height={112} />}
-          className="content "
-        ></FlatList>
+        <TitleCustomOrange title="Review of stories" showTitle={true} />
+        <FlatlistCustomRow data={mangas} />
         <TouchableOpacity className="w-full flex-row justify-center">
           <Text style={styles.seeMore}>Xem thêm »</Text>
         </TouchableOpacity>

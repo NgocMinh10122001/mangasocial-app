@@ -87,7 +87,7 @@ function Login() {
             title="Login"
           />
           <Link
-            href={"/forgotpass"}
+            href={"auth/forgotpass"}
             className="forgot mt-2 text-[20px] font-normal leading-[23px] text-orange-app w-full text-center"
           >
             Forgot Password?

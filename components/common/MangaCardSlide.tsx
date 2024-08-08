@@ -9,7 +9,7 @@ const MangaCardSlide = (item: any) => {
         source={{
           uri: `${item.item.illustration}`,
         }}
-        style={{ width: 131, height: 175 }}
+        style={{ width: 120, height: 137 }}
         className="rounded-lg"
       />
     </TouchableWithoutFeedback>

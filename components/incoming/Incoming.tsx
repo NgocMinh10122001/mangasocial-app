@@ -4,6 +4,7 @@ import { Feather, MaterialCommunityIcons } from "@expo/vector-icons";
 import { FlatList } from "react-native";
 import MangaCard from "../common/MangaCard";
 import Pagination from "../common/pagination/Pagination";
+import FlatlistCustom from "../common/custom/FlatlistCustom";
 
 interface IData {
   id: string;
@@ -282,16 +283,17 @@ const App = () => {
           <Feather name="chevron-down" size={24} color="white" />
         </View>
       </View>
-      <FlatList
-        scrollEnabled={false}
-        numColumns={3}
-        horizontal={false}
-        contentContainerStyle={styles.contentContainerStyle}
-        columnWrapperStyle={styles.columnWrapperStyle}
+
+      <FlatlistCustom
         data={mangas}
-        renderItem={({ item }) => <MangaCard data={item} height={112} />}
-        className="content"
-      ></FlatList>
+        styleContainer={"mt-4"}
+        columnWrapperStyle={{ gap: 10 }}
+        contentContainerStyle={{ gap: 10 }}
+        horizontal={false}
+        numColumns={3}
+        scrollEnable={false}
+        styleItem={{ width: "w-full", height: "h-[112px]" }}
+      />
       <View className="pagination mt-5">
         <Pagination />
       </View>

@@ -15,7 +15,7 @@ interface IProps {
 
 const zoomIn = {
   0: {
-    scale: 0.9,
+    scale: 0.8,
   },
   1: {
     scale: 1,
@@ -26,21 +26,25 @@ const zoomOut = {
     scale: 1,
   },
   1: {
-    scale: 0.9,
+    scale: 0.8,
   },
 };
 
 const TrendingItem = ({ activeItem, item }: { activeItem: any; item: any }) => {
   return (
     <Animatable.View
-      className=""
+      className="mr-0 justify-center items-center"
       animation={activeItem === item?.id ? zoomIn : zoomOut}
       duration={500}
     >
       <TouchableOpacity activeOpacity={0.7} onPress={() => {}} className="">
         <ImageBackground
           source={{ uri: item?.illustration }}
-          className={`w-[131px] h-[175px] rounded-[5px]  overflow-hidden shadow-lg shadow-black/40`}
+          className={` ${
+            activeItem === item?.id
+              ? "w-[165px] h-[182px]"
+              : "w-[80px] h-[119px]"
+          } rounded-[5px] my-5 overflow-hidden shadow-lg shadow-black/40`}
           resizeMode="cover"
         />
       </TouchableOpacity>
