@@ -1,7 +1,7 @@
 import { FlatList, StyleSheet, Text, View } from "react-native";
 import React from "react";
 import MangaCard from "../MangaCard";
-import { IData } from "@/type";
+import { IMangaDetail } from "@/type";
 
 interface IProps {
   styleContainer: string;
@@ -10,7 +10,7 @@ interface IProps {
   horizontal: boolean;
   contentContainerStyle: any;
   columnWrapperStyle: any;
-  data: IData[];
+  data: IMangaDetail[];
   styleItem: {
     width: string;
     height: string;
@@ -37,6 +37,7 @@ const FlatlistCustom = (props: IProps) => {
         contentContainerStyle={contentContainerStyle}
         columnWrapperStyle={columnWrapperStyle}
         data={data}
+        keyExtractor={(item, index) => index.toString()}
         renderItem={({ item }) => (
           <MangaCard
             data={item}

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Dimensions, Image, StyleSheet, Text, View } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import SearchManga from "../common/search/SearchManga";
@@ -7,7 +7,8 @@ import { ScrollView } from "react-native";
 import NewRealse from "./NewRealse";
 import MangaCardSlide from "../common/MangaCardSlide";
 import TrendingCarousel from "../common/trending-carousel/TrendingCarousel";
-import { IData, Item } from "@/type";
+import { IMangaDetail, Item } from "@/type";
+import { MangaClient } from "@/api/manga/MangaClient";
 
 const data: Item[] = [
   {
@@ -40,7 +41,7 @@ const data: Item[] = [
   },
   // Add more items as needed
 ];
-const mangas: IData[] = [
+const mangas: IMangaDetail[] = [
   {
     id: "0",
     title: "Briar",
@@ -95,7 +96,10 @@ const { width, height } = Dimensions.get("window");
 
 function HomeScreens() {
   const [activeSlide, setActiveSlide] = useState(0);
-
+  const getAllManga = new MangaClient();
+  // useEffect(() => {
+  //   getAllManga.fetchAllManga();
+  // }, []);
   return (
     <ScrollView className="" showsVerticalScrollIndicator={false}>
       <View className="flex-row items-center justify-between">

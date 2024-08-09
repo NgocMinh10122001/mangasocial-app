@@ -13,10 +13,11 @@ interface IManga {
 interface IProps {
   data: IManga | any;
   height: number | string;
+  width: string | number;
 }
 const { width } = Dimensions.get("window");
 function MangaCardStory(props: IProps) {
-  const { data, height } = props;
+  const { data, height, width } = props;
   return (
     <TouchableOpacity
       style={{ flex: 1 }}
@@ -26,8 +27,8 @@ function MangaCardStory(props: IProps) {
         source={{
           uri: `${data?.thumbnail}`,
         }}
-        style={{ width: "24%", height: height as number }}
-        className="rounded-lg"
+        style={{ height: height as number }}
+        className={`rounded-lg  ${width}`}
       />
       <View className="justify-center w-full">
         <Text className="font-light text-xs w-[80%]">{data?.title}</Text>

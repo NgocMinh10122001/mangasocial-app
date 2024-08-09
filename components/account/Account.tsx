@@ -1,6 +1,6 @@
 import {
   FlatList,
-  Image,
+  ScrollView,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -59,7 +59,7 @@ const data: any[] = [
 
 export default function Account() {
   return (
-    <View className="pb-16">
+    <ScrollView className="pb-16">
       <View className=" w-full  flex-row justify-between items-center ">
         <Text className="text-orange-app  font-normal leading-[46.09px]  text-[32px]">
           Account
@@ -87,6 +87,7 @@ export default function Account() {
       <FlatList
         scrollEnabled={false}
         data={data}
+        keyExtractor={(item, index) => index.toString()}
         renderItem={({ item }) => (
           <TouchableOpacity
             style={styles.dropdown}
@@ -101,7 +102,7 @@ export default function Account() {
         )}
         className="content mt-2"
       ></FlatList>
-    </View>
+    </ScrollView>
   );
 }
 

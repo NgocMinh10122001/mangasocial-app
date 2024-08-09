@@ -10,6 +10,8 @@ import {
 } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import AntDesign from "@expo/vector-icons/AntDesign";
+import { TouchableOpacity } from "react-native";
+import { router } from "expo-router";
 const { width } = Dimensions.get("window");
 const genres: any[] = [
   {
@@ -115,6 +117,7 @@ function Genres() {
         contentContainerStyle={{ gap: 20 }}
         columnWrapperStyle={{ gap: 20 }}
         data={genres1}
+        keyExtractor={(item, index) => index.toString()}
         renderItem={({ item }) => <GenreItem item={item} />}
       ></FlatList>
       <FlatList
@@ -127,6 +130,7 @@ function Genres() {
         }}
         columnWrapperStyle={{ gap: 20 }}
         data={genres2}
+        keyExtractor={(item, index) => index.toString()}
         renderItem={({ item }) => <GenreItem item={item} />}
       ></FlatList>
       <FlatList
@@ -137,6 +141,7 @@ function Genres() {
         contentContainerStyle={{ gap: 20 }}
         columnWrapperStyle={{ gap: 20 }}
         data={genres3}
+        keyExtractor={(item, index) => index.toString()}
         renderItem={({ item }) => <GenreItem item={item} />}
       ></FlatList>
       <FlatList
@@ -147,6 +152,7 @@ function Genres() {
         contentContainerStyle={{ gap: 20 }}
         columnWrapperStyle={{ gap: 20 }}
         data={genres4}
+        keyExtractor={(item, index) => index.toString()}
         renderItem={({ item }) => <GenreItem item={item} />}
       ></FlatList>
       <FlatList
@@ -157,27 +163,9 @@ function Genres() {
         contentContainerStyle={{ gap: 20 }}
         columnWrapperStyle={{ gap: 20 }}
         data={genres5}
+        keyExtractor={(item, index) => index.toString()}
         renderItem={({ item }) => <GenreItem item={item} />}
       ></FlatList>
-      {/* <FlatList
-        style={{
-          flex: 1,
-          marginTop: 10,
-          marginBottom: 70,
-        }}
-        showsVerticalScrollIndicator={false}
-        horizontal={false}
-        scrollEnabled={false}
-        data={genres}
-        numColumns={2}
-        columnWrapperStyle={{ gap: 8 }}
-        contentContainerStyle={styles.container}
-        renderItem={({ item }) => (
-          <View style={item?.id !== 3 ? styles.wrapper : styles.w}>
-            <GenreItem item={item} />
-          </View>
-        )}
-      ></FlatList> */}
     </View>
   );
 }
@@ -186,7 +174,8 @@ export default Genres;
 
 export const GenreItem = (item: any) => {
   return (
-    <View
+    <TouchableOpacity
+      onPress={() => router.push("genres/5")}
       className={` relative ${
         item?.item?.id !== 9 && item?.item?.id !== 10
           ? "h-[107px]"
@@ -210,7 +199,7 @@ export const GenreItem = (item: any) => {
       <Text className="absolute bottom-0 text-white font-normal text-base !leading-18.75 w-full text-center">
         {item?.item?.name}
       </Text>
-    </View>
+    </TouchableOpacity>
   );
 };
 

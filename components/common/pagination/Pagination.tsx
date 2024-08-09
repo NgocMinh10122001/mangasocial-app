@@ -70,12 +70,16 @@ const PaginationCustomize = (props: IProps) => {
   );
 };
 
-export default function Pagination() {
+export default function Pagination({
+  showPaginateLeft,
+}: {
+  showPaginateLeft: boolean;
+}) {
   const [currentPage, setCurrentPage] = useState(1);
   const totalPages = 12;
 
   return (
-    <View style={styles.container}>
+    <View style={showPaginateLeft ? styles.container2 : styles.container}>
       <PaginationCustomize
         totalPages={totalPages}
         currentPage={currentPage}
@@ -90,6 +94,11 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+  },
+  container2: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "flex-start",
   },
   headerText: {
     fontSize: 24,

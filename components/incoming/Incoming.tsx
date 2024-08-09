@@ -5,17 +5,8 @@ import { FlatList } from "react-native";
 import MangaCard from "../common/MangaCard";
 import Pagination from "../common/pagination/Pagination";
 import FlatlistCustom from "../common/custom/FlatlistCustom";
+import { IMangaDetail } from "@/type";
 
-interface IData {
-  id: string;
-  title: string;
-  thumbnail: string;
-  chapter: string;
-  urlManga: string;
-  urlChapter: string;
-  chapterNew: string;
-  rate: string;
-}
 const App = () => {
   const books = [
     {
@@ -109,7 +100,7 @@ const App = () => {
       rating: 5,
     },
   ];
-  const mangas: IData[] = [
+  const mangas: IMangaDetail[] = [
     {
       id: "0",
       title: "Briar",

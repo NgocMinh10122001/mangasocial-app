@@ -1,10 +1,10 @@
-import { IData } from "@/type";
+import { IMangaDetail } from "@/type";
 import React from "react";
 import { StyleSheet, View } from "react-native";
 import FlatlistCustom from "../common/custom/FlatlistCustom";
 import TitleCustomOrange from "../common/custom/TitleCustomOrange";
 interface IProps {
-  data: IData[];
+  data: IMangaDetail[];
   title: string;
   showTitle: boolean;
 }

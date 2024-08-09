@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import {
-  ScrollView,
   View,
   Text,
   Image,
@@ -160,7 +159,7 @@ const { width, height } = Dimensions.get("window");
 export default function Rank() {
   const [activeSlide, setActiveSlide] = useState(0);
   return (
-    <ScrollView style={styles.container} className="pb-14">
+    <View style={styles.container} className="pb-14">
       <View className=" w-full  flex-row justify-between items-center ">
         <Text className="text-orange-app  font-normal leading-[46.09px]  text-[32px]">
           Rank
@@ -234,12 +233,17 @@ export default function Rank() {
 
       <View style={styles.section}>
         <TitleCustomOrange title="Review of stories" showTitle={true} />
-        <FlatlistCustomRow data={mangas} />
+        <FlatlistCustomRow
+          data={mangas}
+          itemRender={true}
+          showContinue={false}
+          showNumberOfRead={false}
+        />
         <TouchableOpacity className="w-full flex-row justify-center">
           <Text style={styles.seeMore}>Xem thêm »</Text>
         </TouchableOpacity>
       </View>
-    </ScrollView>
+    </View>
   );
 }
 

@@ -1,12 +1,12 @@
-export interface IData {
-  id: string;
-  title: string;
-  thumbnail: string;
-  chapter: string;
-  urlManga: string;
-  urlChapter: string;
-  chapterNew: string;
-  rate: string;
+export interface IMangaDetail {
+  id: string | undefined;
+  title: string | undefined;
+  thumbnail: string | undefined;
+  chapter: string | undefined;
+  urlManga: string | undefined;
+  urlChapter: string | undefined;
+  chapterNew: string | undefined;
+  rate: string | undefined;
 }
 
 export interface Item {
@@ -22,4 +22,6 @@ export interface IManga {
   chapter: string;
   title: string;
   rate: string;
+  author: string;
+  view: string;
 }
