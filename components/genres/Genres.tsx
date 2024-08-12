@@ -12,72 +12,9 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import { TouchableOpacity } from "react-native";
 import { router } from "expo-router";
+import { genres } from "@/type/fakedata";
 const { width } = Dimensions.get("window");
-const genres: any[] = [
-  {
-    name: "Sword Hero",
-    img: "https://cmsassets.rgpub.io/sanity/images/dsfx7636/game_data/2984fc54c2eccfed432ac8a78e90757b574178c4-418x473.jpg?auto=format&fit=fill&q=80&w=418",
-    id: 1,
-  },
-  {
-    name: "Language Love",
-    id: 2,
-    img: "https://cmsassets.rgpub.io/sanity/images/dsfx7636/game_data/2984fc54c2eccfed432ac8a78e90757b574178c4-418x473.jpg?auto=format&fit=fill&q=80&w=418",
-  },
-  {
-    name: "Novel",
-    id: 3,
-    img: "https://cmsassets.rgpub.io/sanity/images/dsfx7636/game_data/2984fc54c2eccfed432ac8a78e90757b574178c4-418x473.jpg?auto=format&fit=fill&q=80&w=418",
-  },
-  {
-    name: "Cartoon",
-    id: 4,
-    img: "https://cmsassets.rgpub.io/sanity/images/dsfx7636/game_data/2984fc54c2eccfed432ac8a78e90757b574178c4-418x473.jpg?auto=format&fit=fill&q=80&w=418",
-  },
-  {
-    name: "Action",
-    id: 5,
-    img: "https://cmsassets.rgpub.io/sanity/images/dsfx7636/game_data/2984fc54c2eccfed432ac8a78e90757b574178c4-418x473.jpg?auto=format&fit=fill&q=80&w=418",
-  },
-  {
-    name: "Trinh Thám",
-    id: 6,
-    img: "https://cmsassets.rgpub.io/sanity/images/dsfx7636/game_data/2984fc54c2eccfed432ac8a78e90757b574178c4-418x473.jpg?auto=format&fit=fill&q=80&w=418",
-  },
-  {
-    name: "Youth in the school garden",
-    id: 7,
 
-    img: "https://cmsassets.rgpub.io/sanity/images/dsfx7636/game_data/2984fc54c2eccfed432ac8a78e90757b574178c4-418x473.jpg?auto=format&fit=fill&q=80&w=418",
-  },
-  {
-    name: "Transcendence",
-    id: 8,
-
-    img: "https://cmsassets.rgpub.io/sanity/images/dsfx7636/game_data/2984fc54c2eccfed432ac8a78e90757b574178c4-418x473.jpg?auto=format&fit=fill&q=80&w=418",
-  },
-  {
-    name: "Comedy",
-    id: 9,
-
-    img: "https://cmsassets.rgpub.io/sanity/images/dsfx7636/game_data/2984fc54c2eccfed432ac8a78e90757b574178c4-418x473.jpg?auto=format&fit=fill&q=80&w=418",
-  },
-  {
-    name: "Drama",
-    id: 10,
-    img: "https://cmsassets.rgpub.io/sanity/images/dsfx7636/game_data/2984fc54c2eccfed432ac8a78e90757b574178c4-418x473.jpg?auto=format&fit=fill&q=80&w=418",
-  },
-  {
-    name: "Music",
-    id: 11,
-    img: "https://cmsassets.rgpub.io/sanity/images/dsfx7636/game_data/2984fc54c2eccfed432ac8a78e90757b574178c4-418x473.jpg?auto=format&fit=fill&q=80&w=418",
-  },
-  {
-    name: "Action",
-    id: 12,
-    img: "https://cmsassets.rgpub.io/sanity/images/dsfx7636/game_data/2984fc54c2eccfed432ac8a78e90757b574178c4-418x473.jpg?auto=format&fit=fill&q=80&w=418",
-  },
-];
 const genres1: any[] = genres.slice(0, 2);
 const genres2: any[] = genres.slice(2, 3);
 const genres3: any[] = genres.slice(3, 7);
@@ -176,9 +113,9 @@ export const GenreItem = (item: any) => {
   return (
     <TouchableOpacity
       onPress={() => router.push("genres/5")}
-      className={` relative ${
+      className={` rounded-lg overflow-hidden relative ${
         item?.item?.id !== 9 && item?.item?.id !== 10
-          ? "h-[107px]"
+          ? "h-[107px] "
           : "h-[211px]"
       }`}
       style={
@@ -191,7 +128,7 @@ export const GenreItem = (item: any) => {
         source={{
           uri: `${item?.item?.img}`,
         }}
-        className=" h-full"
+        className=" h-full rounded-lg"
         style={
           item?.item?.id !== 3 && item?.item?.id !== 8 ? {} : styles.image70
         }

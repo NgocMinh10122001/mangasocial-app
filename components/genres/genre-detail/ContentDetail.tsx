@@ -1,11 +1,17 @@
-import { View, Text } from "react-native";
+import { View, Text, TouchableOpacity } from "react-native";
 import React from "react";
 import { Octicons } from "@expo/vector-icons";
 import { Circle, Path, Svg } from "react-native-svg";
 import { IManga } from "@/type";
 
-const ContentDetail = (props: { data: IManga }) => {
-  const { data } = props;
+const ContentDetail = (props: {
+  data: IManga;
+  showNumberOfRead: boolean;
+  showContinue: boolean;
+  showEvaluate: boolean;
+}) => {
+  const { data, showNumberOfRead, showContinue, showEvaluate } = props;
+
   return (
     <View className="justify-center gap-1 w-full">
       <Text className="font-light text-15 leading-17.58 w-[62%] text-orange-app truncate mb-1">
@@ -31,25 +37,41 @@ const ContentDetail = (props: { data: IManga }) => {
         </Svg>
         <Text className="text-sm leading-16.1">Author: {data?.author}</Text>
       </View>
-      <View className="flex-row gap-1 items-center">
-        <Svg
-          width={19}
-          height={19}
-          viewBox="0 0 19 19"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <Circle cx={9.49992} cy={9.50004} r={2.66667} stroke="#222" />
-          <Path
-            d="M16.625 9.5S15.833 3.167 9.5 3.167 2.375 9.5 2.375 9.5"
-            stroke="#222"
-          />
-        </Svg>
-        <Text className="text-sm leading-16.1">
-          Number of reads: {data?.view}k
-        </Text>
-      </View>
-      <Text>Chapter {data?.chapter}: Side story </Text>
+      {showNumberOfRead && (
+        <View className="flex-row gap-1 items-center ">
+          <Svg
+            width={19}
+            height={19}
+            viewBox="0 0 19 19"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <Circle cx={9.49992} cy={9.50004} r={2.66667} stroke="#222" />
+            <Path
+              d="M16.625 9.5S15.833 3.167 9.5 3.167 2.375 9.5 2.375 9.5"
+              stroke="#222"
+            />
+          </Svg>
+          <Text className="text-sm leading-16.1">
+            Number of reads: {data?.view}k
+          </Text>
+        </View>
+      )}
+      <Text className="mb-2">Chapter {data?.chapter}: Side story </Text>
+      {showContinue && (
+        <TouchableOpacity>
+          <View className="py-1 rounded-full overflow-hidden bg-orange-app  max-w-[36%] ">
+            <Text className="text-white text-center">Continue reading</Text>
+          </View>
+        </TouchableOpacity>
+      )}
+      {showEvaluate && (
+        <TouchableOpacity>
+          <View className="py-1 rounded-full overflow-hidden bg-orange-app  max-w-[36%] ">
+            <Text className="text-white text-center">Evaluate now</Text>
+          </View>
+        </TouchableOpacity>
+      )}
     </View>
   );
 };

@@ -5,19 +5,26 @@ const _layout = () => {
   return (
     <Stack>
       <Stack.Screen
+        name="change-pass-word"
+        options={{
+          headerShown: false,
+        }}
+      ></Stack.Screen>
+      <Stack.Screen
         name="forgotpass"
+        options={{
+          headerShown: false,
+        }}
+      ></Stack.Screen>
+
+      <Stack.Screen
+        name="forgotpassconfirm"
         options={{
           headerShown: false,
         }}
       ></Stack.Screen>
       <Stack.Screen
         name="signup"
-        options={{
-          headerShown: false,
-        }}
-      ></Stack.Screen>
-      <Stack.Screen
-        name="forgotpassconfirm"
         options={{
           headerShown: false,
         }}

@@ -10,6 +10,7 @@ import {
 import { Feather, MaterialCommunityIcons } from "@expo/vector-icons";
 import { router } from "expo-router";
 import Pagination from "../common/pagination/Pagination";
+import { startItemIcon } from "@/type/fakedata";
 
 const ComicDetail = () => {
   return (
@@ -51,11 +52,25 @@ const ComicDetail = () => {
             <Text style={styles.ratingText}>Rating: 5/5</Text>
           </View>
           <View style={styles.statsContainer}>
-            <StatItem label="Chapter" value="25" />
-            <StatItem label="View" value="3.1k" />
-            <StatItem label="Status" value="Complete" />
-            <TouchableOpacity style={styles.downloadButton}>
+            {startItemIcon.map((item, index) => {
+              return (
+                <View key={index}>
+                  <StatItem
+                    label={item.lable}
+                    value={item.value}
+                    icon={item.svg}
+                    id={item.id}
+                  />
+                </View>
+              );
+            })}
+
+            <TouchableOpacity
+              style={styles.downloadButton}
+              className="flex-row items-center"
+            >
               <Text style={styles.downloadText}>Download</Text>
+              {/* <AntDesign name="download" size={19} color="white" /> */}
             </TouchableOpacity>
           </View>
         </View>
@@ -111,22 +126,45 @@ const ComicDetail = () => {
           date: "2024-5-29",
         },
       ].map((chapter, index) => (
-        <View key={index} style={styles.chapterItem}>
+        <TouchableOpacity
+          onPress={() => router.push("genres/comic/123456")}
+          key={index}
+          style={styles.chapterItem}
+        >
           <Text style={styles.chapterTitle}>{chapter.title}</Text>
           <Text style={styles.chapterDate}>{chapter.date}</Text>
-        </View>
+        </TouchableOpacity>
       ))}
     </ScrollView>
   );
 };
 
-const StatItem = ({ label, value }: { label: any; value: any }) => (
-  <View style={styles.statItem}>
-    <Text style={styles.statLabel}>{label}</Text>
-    <Text style={styles.statValue}>{value}</Text>
-  </View>
-);
-
+const StatItem = ({
+  label,
+  value,
+  icon,
+  id,
+}: {
+  label: any;
+  value: any;
+  icon: any;
+  id: any;
+}) => {
+  return (
+    <View style={styles.statItem}>
+      <Text style={styles.statLabel}>{label}</Text>
+      <View className="flex-row items-center gap-1">
+        {icon}
+        <Text
+          style={styles.statValue}
+          className={`${id === "status" ? "text-orange-app" : "text-white"}`}
+        >
+          {value}
+        </Text>
+      </View>
+    </View>
+  );
+};
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -144,7 +182,7 @@ const styles = StyleSheet.create({
   },
   title: {
     color: "white",
-    fontSize: 18,
+    fontSize: 24,
     fontWeight: "bold",
   },
   author: {
@@ -167,7 +205,7 @@ const styles = StyleSheet.create({
   statsContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
-    marginTop: 10,
+    marginTop: 20,
   },
   statItem: {
     alignItems: "center",
@@ -177,7 +215,6 @@ const styles = StyleSheet.create({
     fontSize: 12,
   },
   statValue: {
-    color: "white",
     fontSize: 14,
     fontWeight: "bold",
   },
@@ -201,7 +238,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   categoryButton: {
-    backgroundColor: "orange",
+    backgroundColor: "#ed6119",
     paddingVertical: 5,
     paddingHorizontal: 10,
     borderRadius: 15,
@@ -224,7 +261,7 @@ const styles = StyleSheet.create({
     marginRight: 10,
   },
   findButton: {
-    backgroundColor: "orange",
+    backgroundColor: "#ed6119",
     padding: 5,
     borderRadius: 5,
   },

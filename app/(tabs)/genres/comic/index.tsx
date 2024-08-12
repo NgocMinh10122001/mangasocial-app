@@ -3,19 +3,17 @@ import React from "react";
 import ComicDetail from "@/components/comic/ComicDetail";
 import ReadComic from "@/components/comic/ReadComic";
 
-const Comic = () => {
+export default function Comic() {
   return (
-    <SafeAreaView style={{ flex: 1 }} className={`  h-full  bg-f8`}>
+    <SafeAreaView style={{ flex: 1 }} className={`  h-full  bg-white`}>
       <StatusBar
         animated={true}
         backgroundColor={"#000"}
         barStyle={"dark-content"}
       />
       <ScrollView className="h-full  px-[28.43px] ">
-        <ReadComic />
+        <ComicDetail />
       </ScrollView>
     </SafeAreaView>
   );
-};
-
-export default Comic;
+}

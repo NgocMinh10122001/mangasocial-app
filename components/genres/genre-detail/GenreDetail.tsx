@@ -44,7 +44,7 @@ const GenreDetail = (props: IProps) => {
           showNumberOfRead={true}
         />
       </View>
-      <Pagination />
+      <Pagination showPaginateLeft={false} />
     </View>
   );
 };

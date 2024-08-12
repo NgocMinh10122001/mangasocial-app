@@ -8,7 +8,7 @@ const GenreDetailPage = () => {
   return (
     <SafeAreaView
       style={{ flex: 1 }}
-      className={` h-full ${ios ? "mt-0" : "mt-3"} bg-f8`}
+      className={` h-full ${ios ? "mt-0" : "mt-3"} bg-white`}
     >
       <StatusBar
         animated={true}

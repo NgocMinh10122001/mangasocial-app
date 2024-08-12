@@ -234,6 +234,7 @@ export default function Rank() {
       <View style={styles.section}>
         <TitleCustomOrange title="Review of stories" showTitle={true} />
         <FlatlistCustomRow
+          showEvaluate={false}
           data={mangas}
           itemRender={true}
           showContinue={false}

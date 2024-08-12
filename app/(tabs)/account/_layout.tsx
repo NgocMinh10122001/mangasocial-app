@@ -8,14 +8,36 @@ export default function _layout() {
       <Stack.Screen
         name="index"
         options={{
-          title: "Account",
           headerShown: false,
         }}
       />
       <Stack.Screen
-        name="pf/index"
+        name="pf"
         options={{
-          title: "Account Detail",
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="download"
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="evaluate"
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="feedback"
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="history"
+        options={{
           headerShown: false,
         }}
       />

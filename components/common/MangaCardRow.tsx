@@ -16,26 +16,35 @@ interface IProps {
   data: IManga;
   height: number | string;
   width: string | number;
+  showNumberOfRead: boolean;
+  showContinue: boolean;
+  showEvaluate: boolean;
 }
 function MangaCardRow(props: IProps) {
-  const { data, height, width } = props;
+  const { data, height, width, showNumberOfRead, showContinue, showEvaluate } =
+    props;
   return (
     <View>
       <TitleCustomOrange showTitle={false} title="" />
       <TouchableOpacity
-        onPress={() => router.push("comic")}
+        onPress={() => router.push("genres/comic")}
         style={{ flex: 1 }}
-        className="flex-row justify-start gap-3 mb-3 items-center"
+        className="flex-row justify-start gap-3 mb-3 items-center "
       >
         <Image
           source={{
             uri: `${data?.thumbNail}`,
           }}
           style={{ height: height as number }}
-          className={`rounded-sm ${width}`}
+          className={`rounded-lg  ${width}`}
         />
         <View>
-          <ContentDetail data={data} />
+          <ContentDetail
+            data={data}
+            showNumberOfRead={showNumberOfRead}
+            showContinue={showContinue}
+            showEvaluate={showEvaluate}
+          />
         </View>
       </TouchableOpacity>
     </View>

@@ -8,9 +8,12 @@ interface IProps {
   itemRender: boolean;
   showContinue: boolean;
   showNumberOfRead: boolean;
+  showEvaluate: boolean;
 }
 const FlatlistCustomRow = (props: IProps) => {
-  const { data, itemRender, showContinue, showNumberOfRead } = props;
+  const { data, itemRender, showContinue, showNumberOfRead, showEvaluate } =
+    props;
+
   return (
     <FlatList
       data={data}
@@ -18,7 +21,14 @@ const FlatlistCustomRow = (props: IProps) => {
         itemRender ? (
           <MangaCardStory data={item} height={112} width={"w-[26%]"} />
         ) : (
-          <MangaCardRow data={item} height={142} width={"w-[30%]"} />
+          <MangaCardRow
+            data={item}
+            height={142}
+            width={"w-[30%]"}
+            showNumberOfRead={showNumberOfRead}
+            showContinue={showContinue}
+            showEvaluate={showEvaluate}
+          />
         )
       }
       keyExtractor={(item, index) => index.toString()}

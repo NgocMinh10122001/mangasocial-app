@@ -9,22 +9,27 @@ import {
   View,
 } from "react-native";
 import { Link, useRouter } from "expo-router";
-import CustomBtn from "../../common/custom/CustomBtn";
-import CustomLoginLogo from "../../common/custom/CustomLoginLogo";
-import FormField from "../../common/custom/FormField";
+import FormField from "../common/custom/FormField";
+import CustomBtn from "../common/custom/CustomBtn";
+import CustomLoginLogo from "../common/custom/CustomLoginLogo";
+
 interface IForm {
   email: string;
   password: string;
+  confirmPassword: string;
+  userName: string;
 }
-function Login() {
+function SetNewPassWord() {
   const router = useRouter();
   const [form, setForm] = useState<IForm>({
     email: "",
     password: "",
+    confirmPassword: "",
+    userName: "",
   });
 
   const handleSubmit = (name: string) => {
-    router.push("auth/signup");
+    router.push("/");
   };
   return (
     <SafeAreaView className="bg-black">
@@ -35,10 +40,10 @@ function Login() {
         <StatusBar barStyle={"light-content"} />
         <View className="login-container  w-full h-full font-sans mt-4 ">
           <Text className="text-white font-medium text-[32px] leading-[37.5px] text-center w-full">
-            Log in
+            Sign up
           </Text>
           <Text className="text-white text-[22px] leading-[25.78px] font-light text-center w-full mt-6">
-            You can log in with your account
+            You can sign up with your account
           </Text>
           <Text className="text-white text-[22px] leading-[25.78px] font-light text-center w-full ">
             social network
@@ -67,12 +72,23 @@ function Login() {
               otherStyle={""}
               keyboardType={"email-address"}
             />
+
             <FormField
               title="Password"
               placeholder="Password"
               value={form.password}
               handleChangeText={(e: string) =>
                 setForm({ ...form, password: e })
+              }
+              otherStyle={""}
+              keyboardType={"email-address"}
+            />
+            <FormField
+              title="Password"
+              placeholder="Confirm Password"
+              value={form.confirmPassword}
+              handleChangeText={(e: string) =>
+                setForm({ ...form, confirmPassword: e })
               }
               otherStyle={""}
               keyboardType={"email-address"}
@@ -84,33 +100,15 @@ function Login() {
             textStyle={"text-white"}
             isLoading={true}
             containerStyles={"mt-8"}
-            title="Login"
+            title="Complete"
           />
-          <Link
-            href={"auth/forgotpass"}
-            className="forgot mt-2 text-[20px] font-normal leading-[23px] text-orange-app w-full text-center"
-          >
-            Forgot Password?
-          </Link>
-
-          <Text className="font-normal px-7 text-[20px] leading-[23.44px] text-white mt-6 w-full text-center">
-            By choosing to log in, you agree to MangaSocial Version's{" "}
-            <Link href={""} className="text-blue-700">
-              terms of use
-            </Link>{" "}
-            and{" "}
-            <Link href={""} className="text-blue-700">
-              privacy policy
-            </Link>
-          </Text>
-
-          <Text className="font-normal text-[20px] leading-[23.44px] mb-4 text-white w-full text-center mt-36">
-            Do not have an account?{" "}
+          <Text className="font-normal text-[20px] leading-[23.44px] mb-4 text-white w-full text-center mt-32">
+            Already have an account?{" "}
             <Text
-              onPress={() => handleSubmit("signup")}
+              onPress={() => handleSubmit("login")}
               className="text-orange-app"
             >
-              Sign Up
+              Login here
             </Text>
           </Text>
         </View>
@@ -119,4 +117,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default SetNewPassWord;

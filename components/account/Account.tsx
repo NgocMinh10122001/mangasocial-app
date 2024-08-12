@@ -22,36 +22,43 @@ import { router } from "expo-router";
 const data: any[] = [
   {
     id: "",
+    link: "account/pf",
     title: "Personal information",
     svg: <FontAwesome name="user" size={20} color="white" />,
   },
   {
     id: "",
+    link: "auth/change-pass-word",
     title: "Change Password",
     svg: <Feather name="key" size={20} color="white" />,
   },
   {
     id: "",
+    link: "account/history",
     title: "History",
     svg: <Entypo name="time-slot" size={20} color="white" />,
   },
   {
     id: "",
+    link: "account/download",
     title: "Dowload",
     svg: <AntDesign name="download" size={20} color="white" />,
   },
   {
     id: "",
+    link: "account/evaluate",
     title: "Evaluate",
     svg: <FontAwesome5 name="pen" size={20} color="white" />,
   },
   {
     id: "",
+    link: "account/feedback",
     title: "Help Center",
     svg: <AntDesign name="questioncircleo" size={20} color="white" />,
   },
   {
     id: "",
+    link: "auth/sign-out",
     title: "Log out",
     svg: <AntDesign name="poweroff" size={20} color="white" />,
   },
@@ -74,7 +81,7 @@ export default function Account() {
       </View>
       <View className="user flex-row items-center gap-2 relative">
         <TouchableOpacity
-          onPress={() => router.replace("/(tabs)/account/pf")}
+          onPress={() => router.push("account/pf")}
           className="user-image rounded-full p-3 bg-orange-app border-[1px] border-green-300 w-fit h-fit flex-row justify-center items-center"
         >
           <SimpleLineIcons name="user-female" size={22} color="white" />
@@ -92,6 +99,7 @@ export default function Account() {
           <TouchableOpacity
             style={styles.dropdown}
             className="bg-orange-app h-[51px]"
+            onPress={() => router.push(`${item?.link}`)}
           >
             <View className="flex-row items-center gap-2">
               {item?.svg}

@@ -37,7 +37,7 @@ function SignUp() {
         showsVerticalScrollIndicator={false}
       >
         <StatusBar barStyle={"light-content"} />
-        <View className="login-container  w-full h-full font-sans mt-12 ">
+        <View className="login-container  w-full h-full font-sans mt-4 ">
           <Text className="text-white font-medium text-[32px] leading-[37.5px] text-center w-full">
             Sign up
           </Text>

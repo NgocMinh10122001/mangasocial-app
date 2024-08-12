@@ -59,7 +59,7 @@ export default function AccountInformation() {
       </View>
       <View className="user flex-row items-center justify-center py-9 gap-2 ">
         <TouchableOpacity
-          onPress={() => router.replace("/(tabs)/account/pf")}
+          onPress={() => router.back()}
           className="user-image rounded-full p-6 bg-orange-app  w-fit h-fit flex-row justify-center items-center"
         >
           <SimpleLineIcons name="user-female" size={37} color="white" />

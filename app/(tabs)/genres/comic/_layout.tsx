@@ -11,13 +11,7 @@ export default function _layout() {
         }}
       />
       <Stack.Screen
-        name="[id]"
-        options={{
-          headerShown: false,
-        }}
-      />
-      <Stack.Screen
-        name="comic"
+        name="[chapter]"
         options={{
           headerShown: false,
         }}
