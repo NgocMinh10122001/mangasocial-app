@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Dimensions, Image, StyleSheet, Text, View } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import SearchManga from "../common/search/SearchManga";
@@ -6,9 +6,8 @@ import Carousel, { Pagination } from "react-native-snap-carousel";
 import { ScrollView } from "react-native";
 import NewRealse from "./NewRealse";
 import MangaCardSlide from "../common/MangaCardSlide";
-import TrendingCarousel from "../common/trending-carousel/TrendingCarousel";
 import { IMangaDetail, Item } from "@/type";
-import { MangaClient } from "@/api/manga/MangaClient";
+import { useLocalSearchParams } from "expo-router";
 
 const data: Item[] = [
   {
@@ -95,11 +94,9 @@ const mangas: IMangaDetail[] = [
 const { width, height } = Dimensions.get("window");
 
 function HomeScreens() {
+  const params = useLocalSearchParams();
+  let server = params.server || "1";
   const [activeSlide, setActiveSlide] = useState(0);
-  const getAllManga = new MangaClient();
-  // useEffect(() => {
-  //   getAllManga.fetchAllManga();
-  // }, []);
   return (
     <ScrollView className="" showsVerticalScrollIndicator={false}>
       <View className="flex-row items-center justify-between">
@@ -146,14 +143,34 @@ function HomeScreens() {
           inactiveDotScale={0.6}
         /> */}
       </View>
-      <NewRealse data={mangas} showTitle={true} title={"New Realease Manga"} />
-      <NewRealse data={mangas} showTitle={true} title={"Manga love story"} />
       <NewRealse
         data={mangas}
         showTitle={true}
-        title={"Manga about swordplay"}
+        title={"Lastest Manga"}
+        sv={server}
+        type={"lastest_manga"}
       />
-      <NewRealse data={mangas} showTitle={true} title={"Manga novels"} />
+      <NewRealse
+        data={mangas}
+        showTitle={true}
+        title={"New Release Comics"}
+        sv={server}
+        type={"recommended_comics"}
+      />
+      <NewRealse
+        data={mangas}
+        showTitle={true}
+        title={"Recommended Comics"}
+        sv={server}
+        type={"new_release_comics"}
+      />
+      <NewRealse
+        data={mangas}
+        showTitle={true}
+        title={"Coming Soon Comics"}
+        sv={server}
+        type={"cooming_soon_comics"}
+      />
       <View className="banner-footer mt-6 flex-row justify-between items-center w-full pb-6">
         <View className="item-left w-1/3 relative flex-row">
           <Image

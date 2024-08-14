@@ -1,7 +1,7 @@
 import { FlatList, StyleSheet, Text, View } from "react-native";
 import React from "react";
 import MangaCard from "../MangaCard";
-import { IMangaDetail } from "@/type";
+import { IManga, IMangaDetail } from "@/type";
 
 interface IProps {
   styleContainer: string;
@@ -10,7 +10,7 @@ interface IProps {
   horizontal: boolean;
   contentContainerStyle: any;
   columnWrapperStyle: any;
-  data: IMangaDetail[];
+  data: IManga[] | undefined;
   styleItem: {
     width: string;
     height: string;

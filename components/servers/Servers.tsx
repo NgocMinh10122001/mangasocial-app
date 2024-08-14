@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Button,
   FlatList,
@@ -11,59 +11,13 @@ import {
 } from "react-native";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import { router } from "expo-router";
-
-const servers: any[] = [
-  {
-    name: "Sever 1",
-    sv: 1,
-  },
-  {
-    name: "Sever 2",
-    sv: 2,
-  },
-  {
-    name: "Sever 3",
-    sv: 3,
-  },
-  {
-    name: "Sever 4",
-    sv: 4,
-  },
-  {
-    name: "Sever 5",
-    sv: 5,
-  },
-  {
-    name: "Sever 6",
-    sv: 6,
-  },
-  {
-    name: "Sever 7",
-    sv: 7,
-  },
-  {
-    name: "Sever 8",
-    sv: 8,
-  },
-  {
-    name: "Sever 9",
-    sv: 9,
-  },
-  {
-    name: "Sever 10",
-    sv: 10,
-  },
-  {
-    name: "Sever 11",
-    sv: 11,
-  },
-  {
-    name: "Sever 12",
-    sv: 12,
-  },
-];
+import { servers } from "@/type/fakedata";
 
 function Servers() {
+  const [sv, setServer] = useState<number>(1);
+  const handleSelectServer = (sv: number) => {
+    setServer(sv);
+  };
   return (
     <View className="w-full h-full ">
       <StatusBar barStyle={"dark-content"}></StatusBar>
@@ -93,28 +47,41 @@ function Servers() {
           keyExtractor={(item, index) => item.name + index}
           showsVerticalScrollIndicator={false}
           renderItem={({ item }) => (
-            <TouchableOpacity className="flex-row justify-between px-2 items-center bg-white border-[1px] border-orange-app rounded-10 flex-1 h-[42px]">
+            <TouchableOpacity
+              className="flex-row justify-between px-2 items-center bg-white border-[1px] border-orange-app rounded-10 flex-1 h-[42px]"
+              onPress={() => handleSelectServer(item.sv)}
+            >
               <View className=" w-[30px] h-[30px] relative  ">
                 <Image
                   source={require("../../assets/images/server.png")}
                   alt=""
                   className="w-full h-full"
                 ></Image>
-                <View className="absolute block bg-orange-app rounded-full w-[10px] h-[10px] -bottom-1 -right-1"></View>
+                <View
+                  className={`${
+                    item.status === "on" ? "bg-green-500" : "bg-red-500"
+                  } absolute block  rounded-full w-[10px] h-[10px] -bottom-1 -right-1`}
+                ></View>
               </View>
               <Text className="text-orange-app  px-2 text-lg !leading-5">
                 {item.name}
               </Text>
-              <AntDesign name="check" size={24} color="#ed6119" />
+              {item.sv === sv ? (
+                <AntDesign name="check" size={24} color="#ed6119" />
+              ) : (
+                <View className="w-6 h-6"></View>
+              )}
             </TouchableOpacity>
           )}
         ></FlatList>
         <View className="btn-login w-[full]  mt-10 flex-row justify-center items-center">
           <TouchableOpacity
             className="w-[240px] h-[50px] bg-orange-app rounded-[10px] flex-row items-center justify-center "
-            onPress={() => router.replace("/servers/1")}
+            onPress={() => router.replace(`(tabs)/${sv}`)}
           >
-            <Button title="Experience now" color="#ffffff"></Button>
+            <Text className="text-white text-2xl !leading-[28.13px]">
+              Experience now
+            </Text>
           </TouchableOpacity>
         </View>
       </View>

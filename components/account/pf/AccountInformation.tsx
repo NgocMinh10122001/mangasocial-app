@@ -12,7 +12,7 @@ import {
   SimpleLineIcons,
 } from "@expo/vector-icons";
 import { router } from "expo-router";
-import index from "@/app/(tabs)/account/pf";
+import index from "@/app/(tabs)/[server]/account/pf";
 
 interface IUserInfo {
   title: string;

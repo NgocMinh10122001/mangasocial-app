@@ -12,6 +12,7 @@ import { Link, useRouter } from "expo-router";
 import CustomBtn from "../../common/custom/CustomBtn";
 import CustomLoginLogo from "../../common/custom/CustomLoginLogo";
 import FormField from "../../common/custom/FormField";
+import { AuthClient } from "@/api/auth/AuthClient";
 interface IForm {
   email: string;
   password: string;
@@ -26,6 +27,15 @@ function SignUp() {
     confirmPassword: "",
     userName: "",
   });
+  const loginInstance = new AuthClient();
+  const handleLogin = useCallback(async () => {
+    const res = await loginInstance.login(form.email, form.password);
+    if (res && res.errCode === 200) {
+      router.push("/(tabs)");
+    } else {
+      alert("Your email or password is wrong, please try again!");
+    }
+  }, [form.email, form.password, form.confirmPassword, form.userName]);
 
   const handleSubmit = (name: string) => {
     router.push("/");
@@ -104,7 +114,7 @@ function SignUp() {
           </View>
 
           <CustomBtn
-            handlePress={() => router.push("/(tabs)/")}
+            handlePress={() => {}}
             textStyle={"text-white"}
             isLoading={true}
             containerStyles={"mt-8"}

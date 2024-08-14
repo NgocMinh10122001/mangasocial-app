@@ -1,4 +1,5 @@
 import { Circle, Path, Svg } from "react-native-svg";
+import { IServer } from ".";
 
 export const mangasFake: any[] = [
   {
@@ -243,5 +244,68 @@ export const genres: any[] = [
     name: "Action",
     id: 12,
     img: "https://cmsassets.rgpub.io/sanity/images/dsfx7636/game_data/2984fc54c2eccfed432ac8a78e90757b574178c4-418x473.jpg?auto=format&fit=fill&q=80&w=418",
+  },
+];
+
+export const servers: IServer[] = [
+  {
+    name: "Sever 1",
+    sv: 1,
+    status: "on",
+  },
+  {
+    name: "Sever 2",
+    sv: 2,
+    status: "on",
+  },
+  {
+    name: "Sever 3",
+    sv: 3,
+    status: "on",
+  },
+  {
+    name: "Sever 4",
+    sv: 4,
+    status: "off",
+  },
+  {
+    name: "Sever 5",
+    sv: 5,
+    status: "off",
+  },
+  {
+    name: "Sever 6",
+    sv: 6,
+    status: "on",
+  },
+  {
+    name: "Sever 7",
+    sv: 7,
+    status: "on",
+  },
+  {
+    name: "Sever 8",
+    sv: 8,
+    status: "on",
+  },
+  {
+    name: "Sever 9",
+    sv: 9,
+    status: "off",
+  },
+  {
+    name: "Sever 10",
+    sv: 10,
+    status: "on",
+  },
+  {
+    name: "Sever 11",
+    sv: 11,
+    status: "on",
+  },
+  {
+    name: "Sever 12",
+    sv: 12,
+    status: "on",
   },
 ];

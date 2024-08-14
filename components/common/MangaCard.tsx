@@ -4,27 +4,29 @@ import { FontAwesome } from "@expo/vector-icons";
 import { IManga } from "@/type";
 
 interface IProps {
-  data: IManga | any;
+  data: IManga;
   height: number | string;
   width: string | number;
 }
 const { width } = Dimensions.get("window");
 function MangaCard(props: IProps) {
   const { data, height, width } = props;
+  // console.log("check itme", data);
+
   return (
     <TouchableOpacity style={{ flex: 1 }}>
       <Image
         source={{
-          uri: `${data?.thumbnail}`,
+          uri: `${data?.image_poster_link_goc}`,
         }}
         className={`${width} ${height} rounded-lg`}
       />
-      <Text className="font-light text-xs">{data?.title}</Text>
+      <Text className="font-light text-xs">{data?.title_manga}</Text>
       <Text className="font-extralight text-[9px] leading-[10.55px]">
-        Chapter: {data?.chapterNew}
+        Chapter: {data?.chapter_new}
       </Text>
       <Text className="font-extralight text-[8px] leading-[10.55px]">
-        <FontAwesome name="star" size={9} color="#F3EB2F" /> {data?.rate}
+        <FontAwesome name="star" size={9} color="#F3EB2F" /> {5}
       </Text>
     </TouchableOpacity>
   );

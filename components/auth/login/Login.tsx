@@ -1,17 +1,10 @@
 import React, { useCallback, useState } from "react";
-import {
-  Button,
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  Text,
-  TextInput,
-  View,
-} from "react-native";
+import { SafeAreaView, ScrollView, StatusBar, Text, View } from "react-native";
 import { Link, useRouter } from "expo-router";
 import CustomBtn from "../../common/custom/CustomBtn";
 import CustomLoginLogo from "../../common/custom/CustomLoginLogo";
 import FormField from "../../common/custom/FormField";
+import { AuthClient } from "@/api/auth/AuthClient";
 interface IForm {
   email: string;
   password: string;
@@ -22,10 +15,19 @@ function Login() {
     email: "",
     password: "",
   });
-
+  const loginInstance = new AuthClient();
+  const handleLogin = useCallback(async () => {
+    const res = await loginInstance.login(form.email, form.password);
+    if (res && res.errCode === 200) {
+      router.push("servers");
+    } else {
+      alert("Your email or password is wrong, please try again!");
+    }
+  }, [form.email, form.password]);
   const handleSubmit = (name: string) => {
     router.push("auth/signup");
   };
+
   return (
     <SafeAreaView className="bg-black">
       <ScrollView
@@ -80,7 +82,7 @@ function Login() {
           </View>
 
           <CustomBtn
-            handlePress={() => router.push("/(tabs)/")}
+            handlePress={handleLogin}
             textStyle={"text-white"}
             isLoading={true}
             containerStyles={"mt-8"}

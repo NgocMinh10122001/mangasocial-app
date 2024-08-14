@@ -5,8 +5,13 @@ export class ApiClient {
 
   constructor() {
     this.axiosInstance = axios.create({
-      url: "https://www.youtube.com/watch?v=BD9OP4-scSY&list=PLRb-vAn1juPTqQ25wH7EBSAj4IJjBjOl0&index=16/",
-      timeout: 10000,
+      baseURL: "https://apimanga.mangasocial.online/",
+      // timeout: 10000,
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Headers": "*",
+        "Access-Control-Allow-Credentials": "true",
+      },
     });
   }
 }
